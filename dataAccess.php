@@ -12,7 +12,7 @@ $db = "fyp";
 $pdo = new PDO(
     "mysql:host=".$servername.";dbname=".$db,
     $username,
-    "",
+    $password,
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 
