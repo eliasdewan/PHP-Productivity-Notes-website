@@ -4,15 +4,15 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "localhost";
+$password = "";
 $db = "fyp";
 
 
 
 $pdo = new PDO(
-    "mysql:host=localhost;dbname=fyp",
-    "root",
-    "SK@YevVrpIIQ.LEr",
+    "mysql:host=".$servername.";dbname=".$db,
+    $username,
+    "",
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
 );
 
