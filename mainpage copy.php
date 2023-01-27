@@ -32,19 +32,17 @@
 </head>
 
 <body>
-    <h1>Header Here</h1>
-    <p>paragraph Here</p>
-    <form method="post" action="">
-        <input name="Answer" />
-        <input type="submit" value="submit!" />
-    </form>
-    <?php foreach ($scenarios as $scenario) : ?>
+    <h1>Header 1</h1>
+    <p>paragraph 1</p>
+    <?php foreach ($scenarios as $scenario) :
+
+    ?>
+
         <p><?= $scenario->scenarionumber, " ", $scenario->Question ?> </p>
-    <?php endforeach ?>
-
-    <?php foreach ($projects as $project) : ?>
-        <p><?= $project->projectid, " ", $project->priority ?> </p>
-
+        <form method="post" action="">
+            <input name="Answer" />
+            <input type="submit" value="submit!" />
+        </form>
     <?php endforeach ?>
 </body>
 
