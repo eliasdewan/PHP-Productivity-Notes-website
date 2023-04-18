@@ -8,7 +8,7 @@ $password = "";
 $db = "fyp";
 
 
-
+// PDO connection to use later
 $pdo = new PDO(
     "mysql:host=".$servername.";dbname=".$db,
     $username,
@@ -67,6 +67,8 @@ function getAllTasks()
 
 
 
+
+/// Other examples for later use ---------------
 function getAllVehicles()
 {
     global $pdo;
