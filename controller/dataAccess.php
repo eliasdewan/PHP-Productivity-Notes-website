@@ -10,7 +10,7 @@ $db = "fyp";
 
 // PDO connection to use later
 $pdo = new PDO(
-    "mysql:host=".$servername.";dbname=".$db,
+    "mysql:host=" . $servername . ";dbname=" . $db,
     $username,
     $password,
     [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
@@ -59,8 +59,13 @@ function getAllTasks()
 }
 
 
+function addTask($newTask)
+{
+    global $pdo;
+    $statement = $pdo->prepare("INSERT INTO task (taskTitle,taskDescription,timeAllocation,priority,dueDate,strategyId ) VALUES (?,?,?,?,?,?)");
+    $statement->execute([$newTask->taskTitle,$newTask->taskDescription,$newTask->timeAllocation,$newTask->priority,$newTask->dueDate,$newTask->strategyId]); // execute will go into the previous line ? point
 
-
+}
 
 
 

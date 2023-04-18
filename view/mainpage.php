@@ -5,8 +5,8 @@
     <title>
         This is the title
     </title>
-    <link rel="stylesheet" type ="text/scc" href="styles.css"/>
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" type="text/scc" href="../styles.css" />
+    <script type="text/javascript" src="../script.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -67,6 +67,18 @@
         </table>
 
     <?php endforeach ?>
+
+    <form action="../controller/mainpageController.php" method="post">
+        <input name="taskTitleInput" placeholder="Title" />
+        <input name="taskDescriptiomInput" placeholder="Description" />
+
+        <input type="submit" />
+    </form>
+    <?php
+    foreach ($tasks as $task) : ?>
+        <div> <?= $task->tasktitle ?> ------- <?= $task->taskdescription ?></div><!-- for now using title but is $task->taskDescription ?> -->
+    <?php endforeach; ?>
+
 
 
 </body>
