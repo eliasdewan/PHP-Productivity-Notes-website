@@ -1,8 +1,10 @@
 <?php
-class User
+class Knowlage
 {   
-  private $userId;
-  private $password;
+  private $knowlageId;
+  private $knowlageTitle;
+  private $knowlageDescription;
+  private $knowlageCategory;
 
 function __construct()
 {

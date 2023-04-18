@@ -1,8 +1,10 @@
 <?php
-class User
+class Strategy
 {   
-  private $userId;
-  private $password;
+  private $strategyId;
+  private $strategyTitle;
+  private $timeDate;
+  private $tesks; // going to be a list
 
 function __construct()
 {

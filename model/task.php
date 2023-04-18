@@ -1,8 +1,13 @@
 <?php
-class User
+class Task
 {   
-  private $userId;
-  private $password;
+  private $taskId;
+  private $taskTitle;
+  private $taskDescription;
+  private $timeAllocation;
+  private $priority;
+  private $dueDate;
+  private $strategyId; // for database foreign code
 
 function __construct()
 {

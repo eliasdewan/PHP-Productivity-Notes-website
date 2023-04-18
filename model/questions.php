@@ -1,8 +1,10 @@
 <?php
-class User
+class Questions
 {   
-  private $userId;
-  private $password;
+  private $questionId;
+  private $questionDetail;
+  private $category;
+
 
 function __construct()
 {
