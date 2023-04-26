@@ -147,5 +147,5 @@ print_r($users);
 */
 
 
-
+require_once "../view/header.php";
 require_once "../view/mainpage.php";
