@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-    <!-- part of the head loaded from header filer -->
+<!-- part of the head loaded from header filer -->
+
 <head>
     <title>
         Work Environment
@@ -94,6 +95,9 @@
             <?php endforeach; ?>
         </div>
     </div>
+
+
+    
 
 </body>
 

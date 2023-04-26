@@ -13,6 +13,10 @@ function initializeEditor() {
 }
 
 
+// Get the button and popup elements
+
+
+// For the j query
 $(document).ready(function () {
     $('textarea').on('input', function () {
         this.style.height = 'auto';
@@ -39,14 +43,79 @@ $(document).ready(function () {
     function saveContent() {
         var content = tinymce.activeEditor.getContent();
         $.ajax({
-          type: "POST",
-          url: "save.php",
-          data: { content: content }
-        }).done(function( msg ) {
-          alert( msg );
+            type: "POST",
+            url: "save.php",
+            data: { content: content }
+        }).done(function (msg) {
+            alert(msg);
         });
-      }
-    
+    }
+
+    // For timer
+    const popupTrigger = document.getElementById('popup-trigger');
+    const popup = document.getElementById('popup');
+    const closeBtn = document.querySelector('.close-btn');
+    const startBtn = document.getElementById('start-btn');
+    const stopBtn = document.getElementById('stop-btn');
+
+    popupTrigger.addEventListener('click', () => {
+        popup.classList.toggle('show');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        popup.classList.toggle('show');
+    });
+
+    startBtn.addEventListener('click', startTimer);
+    stopBtn.addEventListener('click', stopTimer);
+
+    let timerInterval;
+    let endTime;
+    let timeRemaining;
+
+    function startTimer() {
+        const timerLength = document.getElementById('timer-length').value;
+        endTime = Date.now() + timerLength * 60 * 1000;
+        timeRemaining = endTime - Date.now();
+        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function updateTimer() {
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            startBreak();
+            return;
+        }
+
+        timeRemaining = endTime - Date.now();
+        const secondsRemaining = Math.floor(timeRemaining / 1000) % 60;
+        const minutesRemaining = Math.floor(timeRemaining / 1000 / 60) % 60;
+        const hoursRemaining = Math.floor(timeRemaining / 1000 / 60 / 60);
+
+        const timerDiv = document.getElementById('timer');
+        timerDiv.innerHTML = `Time remaining: ${hoursRemaining}:${minutesRemaining
+            .toString()
+            .padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}<br>End time: ${new Date(endTime).getHours()}:${new Date(endTime)
+                .getMinutes()
+                .toString()
+                .padStart(2, '0')}:${new Date(endTime).getSeconds().toString().padStart(2, '0')}`;
+    }
+
+
+    function startBreak() {
+        const breakLength = document.getElementById('break-length').value;
+
+        endTime = Date.now() + breakLength * 60 * 1000;
+        timeRemaining = endTime - Date.now();
+        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
+
 
 
 });
