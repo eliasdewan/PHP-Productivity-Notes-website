@@ -87,8 +87,8 @@ $sections = getAllSections();
 
 $tasks = getAllTasks();
 $knowledgeList = getAllKnowledge();
-print_r($tasks[0]);
-print_r($knowledgeList[0]);
+//print_r($tasks[0]);
+//print_r($knowledgeList[0]);
 //print_r($users);
 //echo '<br/>';
 

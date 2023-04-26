@@ -1,6 +1,6 @@
 html,
-body ,
-h1{
+body,
+h1 {
     margin: 0;
     padding: 0;
 }
@@ -79,21 +79,21 @@ td {
 
 .container {
     display: flex;
-    height: 100hv;
-    margin-top: 1em;
+    height: 100vh;
 }
 
 .working-container {
-    flex: 1 0 70%;
-    /* set the width of the left section to 70% */
-    margin-right: 2em;
-    padding-left: 2em;
+    flex: 0 0 65%;
+    margin: 1em;
+    overflow: auto;
+    word-wrap: break-word;
 }
 
 .information-container {
     flex: 0 0 30%;
-    /* set the width of the right section to 30% */
-    padding-left: 2em;
+    margin: 1em;
+    overflow: auto;
+    word-wrap: break-word;
 }
 
 .titleKN {
@@ -111,13 +111,13 @@ td {
     line-height: 1.5;
     /* set the line height to make it more readable */
 
+
 }
 
 .card {
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    background-color: #ffffff; 
-    display: block; 
-    margin: 2px; 
-    min-width: 300px;
-  }
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    display: block;
+    padding: 5px;
+}

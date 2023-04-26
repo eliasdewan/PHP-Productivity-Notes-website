@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="../script.js"></script>
-    
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -52,7 +52,7 @@
         </div>
 
         <!-- INFORMATION SECTION -->
-        <div class="information-section ">
+        <div class="information-container ">
             <form class="createInput" action="../controller/mainpageController.php" method="post">
                 <input name="informationTitleAdd" type="text" placeholder="Title" required />
 
@@ -71,16 +71,25 @@
             foreach ($knowledgeList as $knowledge) : ?>
                 <div class="card">
                     <?php
-                    if ($knowledge->knowledgeCategory == "web") : ?>
-                        <span>WEB ELEMENT</span>
-                        <a href="<?= $knowledge->knowledgeDescription ?>" target="_blank">Link title</a>
+                    if ($knowledge->knowledgeCategory == "web") :
+                        $url = $knowledge->knowledgeDescription;
+                        $html = file_get_contents($url);
+                        preg_match("/<title>(.+)<\/title>/siU", $html, $matches);
+                        $title = (count($matches) >= 2) ? $matches[1] : "No title found";
 
+                    ?>
+                        <span>WEB ELEMENT</span>
+                        <link rel="icon" href="<?= $favicon_link ?>" type="image/png">
+                        <img src="http://www.google.com/s2/favicons?domain=<?= $knowledge->knowledgeDescription ?>" width="100" height="100" />
+                        <div class="titleKN"> <?= $knowledge->knowledgeTitle ?></div><!-- for now using title but is $task->taskDescription ?> -->
+                        <a href="<?= $knowledge->knowledgeDescription ?>" target="_blank"><?= $title ?></a>
+                        <div class="descriptionKN"> <?= $knowledge->knowledgeDescription ?></div>
                     <?php
                     else : ?>
 
                         <div class="titleKN"> <?= $knowledge->knowledgeTitle ?></div><!-- for now using title but is $task->taskDescription ?> -->
-                        <div class="DescriptionKN"> <?= nl2br($knowledge->knowledgeDescription) ?></div>
-                        <div class="DescriptionKN"> <?= $knowledge->knowledgeCategory ?></div>
+                        <div class="descriptionKN"> <?= nl2br($knowledge->knowledgeDescription) ?></div>
+                        <div class="descriptionKN"> <?= $knowledge->knowledgeCategory ?></div>
 
                     <?php endif; ?>
                     <!-- INFORMATION BUTTONS HERE -->
