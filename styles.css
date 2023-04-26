@@ -34,15 +34,17 @@ td {
     border: 1px solid black;
 }
 
-.createTaskInput {
+.createInput {
+    /* for the border */
     border: 1px solid #dadce0;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 16px;
 }
 
-.createTaskInput input[type="text"],
-.createTaskInput textarea {
+.createInput input[type="text"],
+.createInput textarea {
+    /* for the input box */
     font-family: Roboto, sans-serif;
     font-size: 20px;
     width: 100%;
@@ -52,7 +54,7 @@ td {
     resize: none;
 }
 
-.createTaskInput input[type="text"] {
+.createInput input[type="text"] {
     font-weight: bold;
 }
 
@@ -114,9 +116,8 @@ td {
 .card {
     border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px; 
     background-color: #ffffff; 
-    display: inline-block; 
-    margin-right: 20px; 
-    width: 300px; 
+    display: block; 
+    margin: 2px; 
+    min-width: 300px;
   }

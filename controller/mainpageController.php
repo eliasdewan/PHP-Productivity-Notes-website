@@ -1,5 +1,6 @@
 <?php
 require_once "../model/knowledge.php";
+require_once "../model/task.php";
 require_once "dataAccess.php";
 
 
@@ -30,10 +31,12 @@ if (isset($_POST["createInformationButton"]) && $_POST["informationTitleAdd"] !=
     addKnowledge($newInfromation);
 }
 
-
+// FOR EDIT AND DELETE BUTTONS
 $knowledgeAction = $_POST['knowledgeAction'] ?? '';
+$taskAction = $_POST['taskAction'] ?? '';
 echo "HELLO THIS IS TESTING";
-echo $knowledgeAction;
+echo $knowledgeAction."knowledge";
+echo $taskAction." task";
 
 switch ($knowledgeAction) {
     case 'add':
@@ -62,17 +65,34 @@ switch ($knowledgeAction) {
         break;
     default:
 }
+
+
+switch ($taskAction) {
+    case 'edit':
+        break;
+    case 'delete':
+        $id = $_POST['taskId'] ?? '';
+        // Implement delete here
+        echo ">in the task remove=".$id;
+        removeTask($id);
+        break;
+
+}
 //echo "FYP ";
 
 $users = getAllUsers();
 $scenarios = getAllScenario();
 $projects = getAllProjects();
 $sections = getAllSections();
+
 $tasks = getAllTasks();
+$knowledgeList = getAllKnowledge();
+print_r($tasks[0]);
+print_r($knowledgeList[0]);
 //print_r($users);
 //echo '<br/>';
 
-$knowledgeList = getAllKnowledge();
+
 
 //print_r($scenarios);
 //echo '<br/>';
@@ -93,7 +113,7 @@ echo '<br/>';
 
 // user -> projects[project] -> sections[section] -> tasks[task] 
 
-
+/*
 foreach ($users as $user) {
     //$userProjects = [];
     $user->projects = [];
@@ -116,7 +136,7 @@ foreach ($users as $user) {
         }
     }
     //  $user->projects = $userProjects;
-}
+}*/
 
 /* TEST FOR ADDING THINGS FROM DATABASE
 echo '<br/>';
