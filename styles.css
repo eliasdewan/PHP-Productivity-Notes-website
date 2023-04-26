@@ -3,6 +3,7 @@ body,
 h1 {
     margin: 0;
     padding: 0;
+
 }
 
 body {
@@ -12,12 +13,34 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
-header {
-    background-color: teal;
+h1{
     padding: 1em;
-    font-size: large;
 }
 
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: teal;
+    font-size: large;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 1em;
+  }
+  
+  nav a:hover {
+    background-color: #8ed1d1;
+  }
 
 p {
     font-family: Georgia, serif;
@@ -120,4 +143,30 @@ td {
     background-color: #ffffff;
     display: block;
     padding: 5px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+    /* Width of scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* Color of scrollbar track */
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Color of scrollbar thumb */
+    border-radius: 5px;
+    /* Rounded corners */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Color of scrollbar thumb on hover */
 }

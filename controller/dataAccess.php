@@ -99,6 +99,10 @@ function removeKnowledge($knowledgeId)
 }
 
 
+function insertDatabase($content){
+    // function to implement or maybe to not implement ++++++++++++++++
+}
+
 
 
 
