@@ -5,81 +5,77 @@
     <title>
         This is the title
     </title>
-    <link rel="stylesheet" type="text/scc" href="../styles.css" />
+    <link rel="stylesheet" type="text/css" href="../styles.css">
     <script type="text/javascript" src="../script.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-    <h1>Header Here</h1>
-    <p>paragraph Here</p>
-    <form method="post" action="">
-        <input name="Answer" />
-        <input type="submit" value="submit!" />
-    </form>
-    <?php foreach ($scenarios as $scenario) : ?>
-        <p><?= $scenario->scenarionumber, " ", $scenario->Question ?> </p>
-    <?php endforeach ?>
-
-    <?php foreach ($projects as $project) : ?>
-        <p><?= $project->projectid, " ", $project->priority ?> </p>
-    <?php endforeach ?>
+    <header>
+        <h1>Work environment</h1>
+    </header>
 
 
-    <?php foreach ($users as $user) :
-        $userRowSpan = 0;
-        foreach ($user->projects as $project) {
-            $userRowSpan += count($project->sections);
-        }
-    ?>
-        <table>
-            <tr>
-                <th> user name</th>
-                <th> prject title</th>
-                <th> section</th>
-            </tr>
+    <!-- WORKING FROM HERE -->
 
+    <div class="container">
+        <div class="working-container">
+            <div class="createTaskInput">
+                <form action="../controller/mainpageController.php" method="post">
+                    <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
+                    <textarea name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails"></textarea>
+
+                    <input type="Submit" value="Create" class="createButton" name="createTaskButton" />
+                </form>
+            </div>
+            <?php
+            foreach ($tasks as $task) : ?>
+                <div class="titleKN"> <?= $task->tasktitle ?></div>
+                <div><?= nl2br($task->taskdescription) ?></div><!-- for now using title but is $task->taskDescription ?> -->
+            <?php endforeach; ?>
+        </div>
+        <div class="information-section">
+            <form action="../controller/mainpageController.php" method="post">
+                <input name="informationTitleAdd" type="text" placeholder="Title" required />
+
+                <label for="addCategorySelector">Choose a category:</label>
+                <select id="addCategorySelector" name="infromationCategorySelector">
+                    <option value="user">Custom text</option>
+                    <option value="book">Book quotes</option>
+                    <option value="web">Weblink</option>
+                </select>
+                <textarea name="informationDescriptiomInput" placeholder="Data" class="createInformationDetails"></textarea>
+                <input type="Submit" value="Create" class="createButton" name="createInformationButton" />
+
+            </form>
 
             <?php
-            foreach ($user->projects as $project) :
-                $projectRowSpan = 0;
-                $projectRowSpan += count($project->sections); // for now while there is no task
+            foreach ($knowledgeList as $knowledge) : ?>
 
-                //  foreach ($project->sections as $section) { }
-
-                foreach ($project->sections as $section) : ?>
-                    <tr>
-                        <?php if ($section ==  $project->sections[0] and $project ==  $user->projects[0]) : ?>
-                            <td rowspan="<?= $userRowSpan  ?>"><?= $user->username . $userRowSpan  ?></td>
-                        <?php endif ?>
-
-                        <?php if ($section ==  $project->sections[0]) : ?>
-                            <td rowspan="<?= $projectRowSpan  ?>"><?= $project->title . $projectRowSpan  ?></td>
-                        <?php endif ?>
-
-                        <td><?= $section->title ?></td>
-                    </tr>
-
-            <?php
-                endforeach;
-            endforeach ?>
-        </table>
-
-    <?php endforeach ?>
-
-    <form action="../controller/mainpageController.php" method="post">
-        <input name="taskTitleInput" placeholder="Title" />
-        <input name="taskDescriptiomInput" placeholder="Description" />
-
-        <input type="submit" />
-    </form>
-    <?php
-    foreach ($tasks as $task) : ?>
-        <div> <?= $task->tasktitle ?> ------- <?= $task->taskdescription ?></div><!-- for now using title but is $task->taskDescription ?> -->
-    <?php endforeach; ?>
-
-
+                <?php
+                if ($knowledge->knowledgeCategory == "web") : ?>
+                <span>WEB ELEMENT</span>
+                <a href="<?= $knowledge->knowledgeDescription ?>" target="_blank">Link title</a>
+                
+                <?php
+                else : ?>
+                <div class="card">
+                    <div class="titleKN"> <?= $knowledge->knowledgeTitle ?></div><!-- for now using title but is $task->taskDescription ?> -->
+                    <div class="DescriptionKN"> <?= nl2br($knowledge->knowledgeDescription) ?></div>
+                    <div class="DescriptionKN"> <?= $knowledge->knowledgeCategory ?></div>
+                </div>
+                <?php endif; ?>
+                <div class="buttons">
+                <form action="../controller/mainpageController.php" method="POST">
+                    <input type="hidden" name="knowledgeId" value="<?= $knowledge->knowledgeId ?>">
+                    <button type="submit" name="knowledgeAction" value="edit">Edit</button>
+                    <button type="submit" name="knowledgeAction" value="delete">Delete</button>
+                </form>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 
 </body>
 

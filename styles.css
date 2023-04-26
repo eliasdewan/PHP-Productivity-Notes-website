@@ -1,15 +1,23 @@
+html,
+body ,
+h1{
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #ffffff;
     background-repeat: no-repeat;
     background-position: top left;
     background-attachment: fixed;
+    font-family: "Open Sans", sans-serif;
 }
 
-h1 {
-    font-family: Arial, sans-serif;
-    color: #000000;
-    background-color: #ffffff;
+header {
+    background-color: teal;
+    padding: 1em;
+    font-size: large;
 }
+
 
 p {
     font-family: Georgia, serif;
@@ -25,3 +33,90 @@ th,
 td {
     border: 1px solid black;
 }
+
+.createTaskInput {
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
+.createTaskInput input[type="text"],
+.createTaskInput textarea {
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 8px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+
+.createTaskInput input[type="text"] {
+    font-weight: bold;
+}
+
+.createButton {
+    background-color: teal;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+.createButton:hover {
+    background-color: deepskyblue;
+}
+
+.container {
+    display: flex;
+    height: 100hv;
+    margin-top: 1em;
+}
+
+.working-container {
+    flex: 1 0 70%;
+    /* set the width of the left section to 70% */
+    margin-right: 2em;
+    padding-left: 2em;
+}
+
+.information-container {
+    flex: 0 0 30%;
+    /* set the width of the right section to 30% */
+    padding-left: 2em;
+}
+
+.titleKN {
+    font-size: 24px;
+    /* set the font size of the title */
+    font-weight: bold;
+    /* make the title bold */
+    margin-bottom: 10px;
+    /* add some space between the title and description */
+}
+
+.descriptionKN {
+    font-size: 16px;
+    /* set the font size of the description */
+    line-height: 1.5;
+    /* set the line height to make it more readable */
+
+}
+
+.card {
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    background-color: #ffffff; 
+    display: inline-block; 
+    margin-right: 20px; 
+    width: 300px; 
+  }

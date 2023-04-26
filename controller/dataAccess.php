@@ -52,7 +52,7 @@ function getAllScenario()
 function getAllTasks()
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM task");
+    $statement = $pdo->prepare("SELECT * FROM task ORDER BY taskid DESC");
     $statement->execute();
     $results = $statement->fetchAll(PDO::FETCH_OBJ);
     return $results;
@@ -66,6 +66,35 @@ function addTask($newTask)
     $statement->execute([$newTask->taskTitle,$newTask->taskDescription,$newTask->timeAllocation,$newTask->priority,$newTask->dueDate,$newTask->strategyId]); // execute will go into the previous line ? point
 
 }
+
+
+/// FIXED CALSSES
+function getAllKnowledge()
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM knowledge ORDER BY knowledgeId DESC");
+    $statement->execute();
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Knowledge");
+    return $results;
+}
+
+function addKnowledge($newKnowledge)
+{
+    global $pdo;
+    $statement = $pdo->prepare("INSERT INTO knowledge (knowledgeTitle,knowledgeDescription,knowledgeCategory ) VALUES (?,?,?)");
+    $statement->execute([$newKnowledge->knowledgeTitle,$newKnowledge->knowledgeDescription,$newKnowledge->knowledgeCategory]); // execute will go into the previous line ? point
+
+}
+
+function removeKnowledge($knowledgeId)
+{
+    global $pdo;
+    $statement = $pdo->prepare("DELETE FROM knowledge WHERE knowledgeId = ?");
+    $statement->execute([$knowledgeId]); // execute will go into the previous line ? point
+
+
+}
+
 
 
 

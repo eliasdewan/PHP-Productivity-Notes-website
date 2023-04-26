@@ -1,10 +1,10 @@
 <?php
-class Knowlage
+class Knowledge
 {   
-  private $knowlageId;
-  private $knowlageTitle;
-  private $knowlageDescription;
-  private $knowlageCategory;
+  private $knowledgeId;
+  private $knowledgeTitle;
+  private $knowledgeDescription;
+  private $knowledgeCategory;
 
 function __construct()
 {
