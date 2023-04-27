@@ -62,7 +62,6 @@ td {
     border: 1px solid #dadce0;
     border-radius: 8px;
     padding: 10px;
-    margin-bottom: 16px;
 }
 
 .createInput input[type="text"],
@@ -204,3 +203,6 @@ body::-webkit-scrollbar-thumb:hover {
 .show {
     display: block !important;
   }
+
+
+
