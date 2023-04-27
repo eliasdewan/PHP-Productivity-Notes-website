@@ -12,6 +12,12 @@ function initializeEditor() {
     });
 }
 
+function redirect(event) {
+    event.preventDefault(); // Prevent the link from opening normally
+    var targetUrl = event.currentTarget.getAttribute("href"); // Get the target URL from the href attribute of the link
+    window.location.href = targetUrl; // Redirect the page to the target URL
+}
+
 
 // Get the button and popup elements
 

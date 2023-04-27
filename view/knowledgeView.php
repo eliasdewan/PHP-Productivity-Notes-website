@@ -1,4 +1,4 @@
-<form class="createInput" action="../controller/mainpageController.php" method="post">
+<form class="createInput" action="../controller/mainPageController.php" method="post">
                 <input name="informationTitleAdd" type="text" placeholder="Title" required />
 
                 <label for="addCategorySelector">Choose a category:</label>
@@ -54,7 +54,7 @@
                     <?php endif; ?>
                     <!-- INFORMATION BUTTONS HERE -->
                     <div class="buttons">
-                        <form action="../controller/mainpageController.php" method="POST">
+                        <form action="../controller/mainPageController.php" method="POST">
                             <input type="hidden" name="knowledgeId" value="<?= $knowledge->knowledgeId ?>">
                             <button type="submit" name="knowledgeAction" value="edit">Edit</button>
                             <button type="submit" name="knowledgeAction" value="delete">Delete</button>

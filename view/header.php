@@ -12,12 +12,12 @@
     <header>
         <h1>Work environment</h1>
         <nav>
-            <a href="http://localhost/fyp/">HOME</a>
+            <a href="mainPageController.php" >HOME</a>
             <a href="#" id="popup-trigger">TIMER</a>
             <a href="#">SEARCH</a>
             <a href="#">SRATEGY</a>
             <a href="#">REFLECTION</a>
-            <a href="http://localhost/fyp/controller/docEditorController.php">WORD PROCESSING</a>
+            <a href="docEditorController.php" onclick="redirect(event)">WORD PROCESSING</a>
         </nav>
     </header>
 

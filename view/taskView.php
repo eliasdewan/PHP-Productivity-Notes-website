@@ -1,5 +1,5 @@
 <div class="createInput">
-                <form action="../controller/mainpageController.php" method="post">
+                <form action="../controller/mainPageController.php" method="post">
                     <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
                     <textarea name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails"></textarea>
 
@@ -15,7 +15,7 @@
 
                     <!-- BUTTONS FOR TASKS -->
                     <div class="buttons">
-                        <form action="../controller/mainpageController.php" method="POST">
+                        <form action="../controller/mainPageController.php" method="POST">
                             <input type="hidden" name="taskId" value="<?= $task->taskId ?>">
                             <button type="submit" name="taskAction" value="edit">Edit</button>
                             <button type="submit" name="taskAction" value="delete">Delete</button>
