@@ -5,7 +5,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$db = "fyp";
+$db = "db_k2056101";
 
 
 // PDO connection to use later
