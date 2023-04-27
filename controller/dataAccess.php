@@ -3,8 +3,8 @@
 //session_start();
 
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "k2056101";
+$password = "testpass";
 $db = "db_k2056101";
 
 
