@@ -33,32 +33,28 @@ if (isset($_POST["createInformationButton"]) && $_POST["informationTitleAdd"] !=
 
 // FOR EDIT AND DELETE BUTTONS
 $knowledgeAction = $_POST['knowledgeAction'] ?? '';
+
 $taskAction = $_POST['taskAction'] ?? '';
-echo "HELLO THIS IS TESTING";
-echo $knowledgeAction."knowledge";
-echo $taskAction." task";
+
+//echo "HELLO THIS IS TESTING";
+//echo $knowledgeAction."knowledge";
+//echo $taskAction." task";
 
 switch ($knowledgeAction) {
     case 'add':
         echo "in the add";
         // code for adding a new item
         break;
-    case 'edit':
-        $id = $_POST['knowledgeId'] ?? '';
-        echo "in the edit";
-
-        // code for retrieving the item to be edited from the database
-        // display the edit form with the item details prefilled
-        break;
     case 'update':
         $id = $_POST['knowledgeId'] ?? '';
+        // Implement update code for data acess
         echo "in the update";
         // redirect to the main page after updating
         break;
     case 'delete':
         $id = $_POST['knowledgeId'] ?? '';
         echo "in the delete";
-        removeKnowledge($id);
+        //removeKnowledge($id);
 
         // code for deleting the item from the database
         // redirect to the main page after deleting
@@ -66,17 +62,20 @@ switch ($knowledgeAction) {
     default:
 }
 
-
+// for task editing 
 switch ($taskAction) {
     case 'edit':
+        $id = $_POST['taskId'] ?? '';
+        $title = $_POST['taskTitleEdit'] ?? '';
+        $description = $_POST['taskDescriptionEdit'] ?? '';
+        updateTask($title,$description,$id);
         break;
     case 'delete':
         $id = $_POST['taskId'] ?? '';
         // Implement delete here
-        echo ">in the task remove=".$id;
+        echo ">in the task remove=" . $id;
         removeTask($id);
         break;
-
 }
 //echo "FYP ";
 

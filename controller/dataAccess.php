@@ -51,6 +51,9 @@ function getAllScenario()
 }
 
 /// FIXED CALSSES
+
+
+## TASK FUNCTIONS
 function getAllTasks()
 {
     global $pdo;
@@ -72,6 +75,12 @@ function removeTask($taskId)
     global $pdo;
     $statement = $pdo->prepare("DELETE FROM task WHERE taskId = ?");
     $statement->execute([$taskId]); // execute will go into the previous line ? point
+}
+function updateTask($title,$description,$id) // UPDATE TASK STRING VALUES QUOTED
+{
+    global $pdo;
+    $statement = $pdo->prepare("UPDATE task SET taskTitle = ?, taskDescription = ? WHERE  taskId = ?");
+    $statement->execute([$title,$description,$id]); // execute will go into the previous line ? point
 }
 
 function getAllKnowledge()
