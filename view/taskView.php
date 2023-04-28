@@ -1,7 +1,7 @@
 <div class="createInput">
     <form action="../controller/mainPageController.php" method="post">
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
-        <textarea name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails"></textarea>
+        <textarea name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails auto-height"></textarea>
 
         <input type="Submit" value="Create" class="createButton" name="createTaskButton" />
     </form>
