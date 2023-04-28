@@ -8,7 +8,7 @@
         <option value="web">Weblink</option>
         <option value="iframe">iframe</option>
     </select>
-    <textarea name="informationDescriptiomInput" placeholder="Data / use a url" class="createInformationDetails"></textarea>
+    <textarea name="informationDescriptiomInput" placeholder="Data / use a / ifram from youtube or soundcloud" class="createInformationDetails"></textarea>
     <input type="Submit" value="Create" class="createButton" name="createInformationButton" />
 
 </form>
