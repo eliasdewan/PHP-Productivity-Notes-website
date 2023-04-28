@@ -6,6 +6,7 @@
         <option value="user">Custom text</option>
         <option value="book">Book quotes</option>
         <option value="web">Weblink</option>
+        <option value="iframe">iframe</option>
     </select>
     <textarea name="informationDescriptiomInput" placeholder="Data / use a url" class="createInformationDetails"></textarea>
     <input type="Submit" value="Create" class="createButton" name="createInformationButton" />
@@ -25,6 +26,9 @@
     <label>
         <input type="checkbox" name="knowledge" checked> Knowledge
     </label>
+    <label>
+        <input type="checkbox" name="iframe" checked> iframe
+    </label>
 </div>
 
 <?php
@@ -40,12 +44,21 @@ foreach ($knowledgeList as $knowledge) : ?>
 
             ?>
                 <span>WEB ELEMENT</span>
-                <link rel="icon" href="<?= $favicon_link ?>" type="image/png">
-                <img src="http://www.google.com/s2/favicons?domain=<?= $knowledge->knowledgeDescription ?>" width="100" height="100" />
                 <input placeholder="Update Title" name="knowledgeTitleEdit" class="titleKN" type="text" value="<?= $knowledge->knowledgeTitle ?>">
                 <a href="<?= $knowledge->knowledgeDescription ?>" target="_blank"><?= $title ?></a>
                 <!--   <div class="descriptionKN"> <?= $knowledge->knowledgeDescription ?></div>-->
                 <input placeholder="USE a url" name="knowledgeDescriptionEdit" class="descriptionKN" type="text" value="<?= $knowledge->knowledgeDescription ?>">
+
+            <?php
+            elseif ($knowledge->knowledgeCategory == "iframe") : ?>
+                <span>IFRAME</span>
+                <input placeholder="Update Title" name="knowledgeTitleEdit" class="titleKN" type="text" value="<?= $knowledge->knowledgeTitle ?>">
+                <?= $knowledge->knowledgeDescription ?>
+                <!--   <div class="descriptionKN"> <?= $knowledge->knowledgeDescription ?></div>-->
+                <input placeholder="USE a iframe link" name="knowledgeDescriptionEdit" class="descriptionKN" type="text" value="<?= htmlspecialchars($knowledge->knowledgeDescription) ?>">
+
+
+
             <?php
             else : ?>
 
@@ -57,8 +70,10 @@ foreach ($knowledgeList as $knowledge) : ?>
             <!-- INFORMATION BUTTONS HERE -->
             <div class="buttons">
                 <input type="hidden" name="knowledgeId" value="<?= $knowledge->knowledgeId ?>">
+                <?php if (!$knowledge->fixed): ?>
                 <button type="submit" name="knowledgeAction" value="edit">Edit</button>
                 <button type="submit" name="knowledgeAction" value="delete">Delete</button>
+                <?php endif; ?>
 
             </div>
         </form>
