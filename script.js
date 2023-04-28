@@ -57,70 +57,74 @@ $(document).ready(function () {
         });
     }
 
-    // For timer
-    const popupTrigger = document.getElementById('popup-trigger');
-    const popup = document.getElementById('popup');
-    const closeBtn = document.querySelector('.close-btn');
-    const startBtn = document.getElementById('start-btn');
-    const stopBtn = document.getElementById('stop-btn');
+    // For timer ----- ####
+    (function autoPomodoroTimer() {
+        const popupTrigger = document.getElementById('popup-trigger');
+        const popup = document.getElementById('popup');
+        const closeBtn = document.querySelector('.close-btn');
+        const startBtn = document.getElementById('start-btn');
+        const stopBtn = document.getElementById('stop-btn');
 
-    popupTrigger.addEventListener('click', () => {
-        popup.classList.toggle('show');
-    });
+        popupTrigger.addEventListener('click', () => {
+            popup.classList.toggle('show');
+        });
 
-    closeBtn.addEventListener('click', () => {
-        popup.classList.toggle('show');
-    });
+        closeBtn.addEventListener('click', () => {
+            popup.classList.toggle('show');
+        });
 
-    startBtn.addEventListener('click', startTimer);
-    stopBtn.addEventListener('click', stopTimer);
+        startBtn.addEventListener('click', startTimer);
+        stopBtn.addEventListener('click', stopTimer);
 
-    let timerInterval;
-    let endTime;
-    let timeRemaining;
+        let timerInterval;
+        let endTime;
+        let timeRemaining;
 
-    function startTimer() {
-        const timerLength = document.getElementById('timer-length').value;
-        endTime = Date.now() + timerLength * 60 * 1000;
-        timeRemaining = endTime - Date.now();
-        updateTimer();
-        timerInterval = setInterval(updateTimer, 1000);
-    }
-
-    function updateTimer() {
-        if (timeRemaining <= 0) {
-            clearInterval(timerInterval);
-            startBreak();
-            return;
+        function startTimer() {
+            const timerLength = document.getElementById('timer-length').value;
+            endTime = Date.now() + timerLength * 60 * 1000;
+            timeRemaining = endTime - Date.now();
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
         }
 
-        timeRemaining = endTime - Date.now();
-        const secondsRemaining = Math.floor(timeRemaining / 1000) % 60;
-        const minutesRemaining = Math.floor(timeRemaining / 1000 / 60) % 60;
-        const hoursRemaining = Math.floor(timeRemaining / 1000 / 60 / 60);
+        function updateTimer() {
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                startBreak();
+                return;
+            }
 
-        const timerDiv = document.getElementById('timer');
-        timerDiv.innerHTML = `Time remaining: ${hoursRemaining}:${minutesRemaining
-            .toString()
-            .padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}<br>End time: ${new Date(endTime).getHours()}:${new Date(endTime)
-                .getMinutes()
+            timeRemaining = endTime - Date.now();
+            const secondsRemaining = Math.floor(timeRemaining / 1000) % 60;
+            const minutesRemaining = Math.floor(timeRemaining / 1000 / 60) % 60;
+            const hoursRemaining = Math.floor(timeRemaining / 1000 / 60 / 60);
+
+            const timerDiv = document.getElementById('timer');
+            timerDiv.innerHTML = `Time remaining: ${hoursRemaining}:${minutesRemaining
                 .toString()
-                .padStart(2, '0')}:${new Date(endTime).getSeconds().toString().padStart(2, '0')}`;
-    }
+                .padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}<br>End time: ${new Date(endTime).getHours()}:${new Date(endTime)
+                    .getMinutes()
+                    .toString()
+                    .padStart(2, '0')}:${new Date(endTime).getSeconds().toString().padStart(2, '0')}`;
+        }
 
 
-    function startBreak() {
-        const breakLength = document.getElementById('break-length').value;
+        function startBreak() {
+            const breakLength = document.getElementById('break-length').value;
 
-        endTime = Date.now() + breakLength * 60 * 1000;
-        timeRemaining = endTime - Date.now();
-        updateTimer();
-        timerInterval = setInterval(updateTimer, 1000);
-    }
+            endTime = Date.now() + breakLength * 60 * 1000;
+            timeRemaining = endTime - Date.now();
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
 
-    function stopTimer() {
-        clearInterval(timerInterval);
-    }
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+    })();
+
+
 
 
 

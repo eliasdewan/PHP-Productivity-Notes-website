@@ -8,3 +8,94 @@ user is for saving and stuff
 strategy is for a project level thing 
 with reflection answers 
 tasks
+
+
+
+
+
+<form id="myForm" action="process.php" method="post">
+  <input type="text" name="name">
+  <input type="email" name="email">
+  <button type="submit">Submit</button>
+</form>
+
+$(document).ready(function() {
+  $('#myForm').submit(function(event) {
+    event.preventDefault(); // prevent default form submission
+
+    var formData = $(this).serialize(); // serialize form data
+
+    $.ajax({
+      url: $(this).attr('action'),
+      type: $(this).attr('method'),
+      data: formData,
+      success: function(response) {
+        // handle successful response from server
+        console.log(response);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        // handle error response from server
+        console.log(errorThrown);
+      }
+    });
+  });
+});
+
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+
+  // process form data here
+
+  echo "Form submitted successfully";
+}
+?>
+
+
+$.post('url-to-php-script', { data: 'value' })
+  .done(function(response) {
+    console.log(response);
+  })
+  .fail(function() {
+    console.log('Request failed.');
+  });
+
+
+
+  exit for php aswell 
+
+
+
+  $(document).ready(function() {
+  $('#myForm').submit(function(event) {
+    event.preventDefault(); // prevent default form submission
+
+    var formData = $(this).serialize(); // serialize form data
+
+    $.ajax({
+      url: $(this).attr('action'),
+      type: $(this).attr('method'),
+      data: formData,
+      success: function(response) {
+        // handle successful response from server
+        console.log(response);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        // handle error response from server
+        console.log(errorThrown);
+      }
+    });
+  });
+});
+
+
+
+$.ajax({
+  url: "example.php",
+  method: "POST",
+  data: { name: "John", location: "Boston" }
+}).done(function(response) {
+  console.log(response);
+});
+
