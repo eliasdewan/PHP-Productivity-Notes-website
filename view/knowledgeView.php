@@ -42,10 +42,10 @@ foreach ($knowledgeList as $knowledge) : ?>
                 <span>WEB ELEMENT</span>
                 <link rel="icon" href="<?= $favicon_link ?>" type="image/png">
                 <img src="http://www.google.com/s2/favicons?domain=<?= $knowledge->knowledgeDescription ?>" width="100" height="100" />
-                <input placeholder="Update Title" class="titleKN" type="text" value="<?= $knowledge->knowledgeTitle ?>">
+                <input placeholder="Update Title" name="knowledgeTitleEdit" class="titleKN" type="text" value="<?= $knowledge->knowledgeTitle ?>">
                 <a href="<?= $knowledge->knowledgeDescription ?>" target="_blank"><?= $title ?></a>
                 <!--   <div class="descriptionKN"> <?= $knowledge->knowledgeDescription ?></div>-->
-                <input placeholder="USE a url" class="descriptionKN" type="text" value="<?= $knowledge->knowledgeDescription ?>">
+                <input placeholder="USE a url" name="knowledgeDescriptionEdit" class="descriptionKN" type="text" value="<?= $knowledge->knowledgeDescription ?>">
             <?php
             else : ?>
 
