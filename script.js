@@ -24,11 +24,18 @@ function redirect(event) {
 
 // For the j query
 $(document).ready(function () {
-    $('textarea').on('input', function () {
-        this.style.height = 'auto';
-        this.style.height = this.scrollHeight + 'px';
+
+    $(document).ready(function () {
+        $('.auto-height').each(function () {
+            this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+        }).on('input', function () {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
     });
 
+
+    // For css
 
     // To get the title of a website
     $('a').each(function () {

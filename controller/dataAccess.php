@@ -83,6 +83,7 @@ function updateTask($title,$description,$id) // UPDATE TASK STRING VALUES QUOTED
     $statement->execute([$title,$description,$id]); // execute will go into the previous line ? point
 }
 
+// KNOWLEGE FUNCTIONS
 function getAllKnowledge()
 {
     global $pdo;
@@ -106,6 +107,14 @@ function removeKnowledge($knowledgeId)
     $statement = $pdo->prepare("DELETE FROM knowledge WHERE knowledgeId = ?");
     $statement->execute([$knowledgeId]); // execute will go into the previous line ? point
 }
+
+function updateKnowledge($title,$description,$id) // UPDATE TASK STRING VALUES QUOTED
+{
+    global $pdo;
+    $statement = $pdo->prepare("UPDATE knowledge SET knowledgeTitle = ?, knowledgeDescription = ? WHERE  knowledgeId = ?");
+    $statement->execute([$title,$description,$id]); // execute will go into the previous line ? point
+}
+
 
 
 function insertDatabase($content){

@@ -8,14 +8,12 @@
 </div>
 <?php
 foreach ($tasks as $task) : ?>
-    <div class="card">
+    <div class="card spyInput">
 
         <form action="../controller/mainPageController.php" method="POST">
-            <div class="titleKN"> <?= $task->taskTitle ?></div>
+            <input class="titleKN spyInput" type="text" name="taskTitleEdit" value="<?= $task->taskTitle ?>">
             <div class="titleKN"> <?= $task->taskId ?></div>
-            <div><?= nl2br($task->taskDescription) ?></div><!-- for now using title but is $task->taskDescription ?> -->
-            <input type="text" name="taskTitleEdit" value="<?= $task->taskTitle ?>">
-            <textarea type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
+            <textarea class="auto-height" type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
             <!-- BUTTONS FOR TASKS -->
             <div class="buttons">
 
