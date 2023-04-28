@@ -9,7 +9,7 @@ require_once "dataAccess.php";
 // Checking the submit was pressed
 if (isset($_POST["taskTitleInput"]) && $_POST["taskTitleInput"] !== "") {
 
-    $newTask = new stdClass();
+    $newTask = new Task();
     $newTask->taskTitle = $_POST["taskTitleInput"];
     $newTask->taskDescription = $_POST["taskDescriptiomInput"];
     $newTask->timeAllocation = 60; // 60 minutes
