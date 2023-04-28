@@ -5,6 +5,9 @@ class Knowledge
     private $knowledgeTitle;
     private $knowledgeDescription;
     private $knowledgeCategory;
+    private $sortOrder;
+    private $isDocument;
+    private $fixed;
 
     function __construct()
     {
