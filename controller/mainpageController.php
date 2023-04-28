@@ -45,16 +45,21 @@ switch ($knowledgeAction) {
         echo "in the add";
         // code for adding a new item
         break;
-    case 'update':
+    case 'edit':
         $id = $_POST['knowledgeId'] ?? '';
+        $title = $_POST['knowledgeTitleEdit'] ?? '';
+        $description = $_POST['knowledgeDescriptionEdit'] ?? '';
+        //print_r($title."".$description." ".$id);
+        updateKnowledge($title,$description,$id);
         // Implement update code for data acess
-        echo "in the update";
+        echo "in the edit";
+        
         // redirect to the main page after updating
         break;
     case 'delete':
         $id = $_POST['knowledgeId'] ?? '';
         echo "in the delete";
-        //removeKnowledge($id);
+        removeKnowledge($id);
 
         // code for deleting the item from the database
         // redirect to the main page after deleting
