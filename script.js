@@ -105,12 +105,12 @@ $(document).ready(function () {
             timeRemaining = endTime - Date.now();
             const secondsRemaining = Math.floor(timeRemaining / 1000) % 60;
             const minutesRemaining = Math.floor(timeRemaining / 1000 / 60) % 60;
-            const hoursRemaining = Math.floor(timeRemaining / 1000 / 60 / 60);
+            //const hoursRemaining = Math.floor(timeRemaining / 1000 / 60 / 60);
 
             const timerDiv = document.getElementById('timer');
-            timerDiv.innerHTML = `Time remaining: ${hoursRemaining}:${minutesRemaining
+            timerDiv.innerHTML = `${minutesRemaining
                 .toString()
-                .padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}<br>End time: ${new Date(endTime).getHours()}:${new Date(endTime)
+                .padStart(2, '0')}:${secondsRemaining.toString().padStart(2, '0')}<br>End time: ${new Date(endTime)
                     .getMinutes()
                     .toString()
                     .padStart(2, '0')}:${new Date(endTime).getSeconds().toString().padStart(2, '0')}`;
