@@ -13,12 +13,12 @@
 
     <div class="container">
         <div class="working-container">
-            <?php include 'taskView.php'; ?>
+            <?php include '../controller/taskController.php'; ?>
         </div>
 
         <!-- INFORMATION SECTION -->
         <div class="information-container ">
-        <?php include 'knowledgeView.php'; ?>
+        <?php include '../controller/knowlegeController.php'; ?>
         </div>
     </div>
 
