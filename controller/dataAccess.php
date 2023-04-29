@@ -78,8 +78,8 @@ function getTasksByUserId($id)
 function addTask($newTask)
 {
     global $pdo;
-    $statement = $pdo->prepare("INSERT INTO task (taskTitle,taskDescription,timeAllocation,priority,dueDate,strategyId,isDocument ) VALUES (?,?,?,?,?,?,?)");
-    $statement->execute([$newTask->taskTitle,$newTask->taskDescription,$newTask->timeAllocation,$newTask->priority,$newTask->dueDate,$newTask->strategyId,$newTask->isDocument]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("INSERT INTO task (taskTitle,taskDescription,timeAllocation,priority,dueDate,projectId,progress,userId,isDocument ) VALUES (?,?,?,?,?,?,?,?,?)");
+    $statement->execute([$newTask->taskTitle,$newTask->taskDescription,$newTask->timeAllocation,$newTask->priority,$newTask->dueDate,$newTask->projectId,$newTask->progress,$newTask->userId,$newTask->isDocument]); // execute will go into the previous line ? point
 }
 function removeTask($taskId)
 {
@@ -116,8 +116,8 @@ function getKnowledgeByUserId($id)
 function addKnowledge($newKnowledge)
 {
     global $pdo;
-    $statement = $pdo->prepare("INSERT INTO knowledge (knowledgeTitle,knowledgeDescription,knowledgeCategory ) VALUES (?,?,?)");
-    $statement->execute([$newKnowledge->knowledgeTitle,$newKnowledge->knowledgeDescription,$newKnowledge->knowledgeCategory]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("INSERT INTO knowledge (knowledgeTitle,knowledgeDescription,knowledgeCategory,userId,isDocument,sortOrder ) VALUES (?,?,?,?,?,?)");
+    $statement->execute([$newKnowledge->knowledgeTitle,$newKnowledge->knowledgeDescription,$newKnowledge->knowledgeCategory,$newKnowledge->userId,$newKnowledge->isDocument,$newKnowledge->sortOrder]); // execute will go into the previous line ? point
 
 }
 

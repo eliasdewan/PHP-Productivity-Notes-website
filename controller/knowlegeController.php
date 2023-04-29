@@ -5,19 +5,22 @@
 
 if (isset($_POST["createInformationButton"]) && $_POST["informationTitleAdd"] !== "") {
     $newInfromation = new Knowledge();
+
     $newInfromation->knowledgeTitle = $_POST["informationTitleAdd"];
     $newInfromation->knowledgeDescription = $_POST["informationDescriptiomInput"];
     $newInfromation->knowledgeCategory = $_POST["infromationCategorySelector"];
-    unset($_POST['createInformationButton']);
+    $newInfromation->userId = 0;//$_POST["infromationCategorySelector"];
+    $newInfromation->isDocument = 0;//$_POST["infromationCategorySelector"];
+    $newInfromation->sortOrder = 0;//$_POST["infromationCategorySelector"];
 
+
+    unset($_POST['createInformationButton']);
     addKnowledge($newInfromation);
 }
 
 
 // FOR EDIT AND DELETE BUTTONS
 $knowledgeAction = $_POST['knowledgeAction'] ?? '';
-
-
 
 switch ($knowledgeAction) {
     case 'add':

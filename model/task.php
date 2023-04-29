@@ -7,7 +7,9 @@ class Task
     private $timeAllocation;
     private $priority;
     private $dueDate;
-    private $strategyId; // for database foreign code
+    private $projectId; // for database foreign code
+    private $userId;
+    private $progress;
     private $isDocument;
 
     function __construct()

@@ -8,6 +8,7 @@ class Knowledge
     private $sortOrder;
     private $isDocument;
     private $fixed;
+    private $userId;
 
     function __construct()
     {
