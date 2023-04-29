@@ -1,13 +1,16 @@
 function addClassEditorButton() {
+
     var textarea = $(this).siblings('textarea');
     //textarea.toggleClass('editor');
     if (textarea.hasClass('editor')) {
         textarea.removeClass('editor');
         tinymce.remove('textarea:not(.editor)');
         textarea.removeClass('editor');
+
     } else {
         textarea.addClass('editor');
         initializeEditor(textarea);
+        
     }
 
 
@@ -31,8 +34,6 @@ function initializeEditor() {
 
 
 function changeIsDocumentValue(button) {
-
-
     if($(button).siblings('input[name="isDocument"]').val() == 1){
         $(button).siblings('input[name="isDocument"]').val(0);
     }
