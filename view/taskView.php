@@ -1,5 +1,5 @@
 <div class="createInput">
-    <form class="create" action="../controller/mainPageController.php" method="post">
+    <form class="create createTask" action="../controller/mainPageController.php" method="post">
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
         <input type="hidden" name="isDocument" value="0">
         <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>

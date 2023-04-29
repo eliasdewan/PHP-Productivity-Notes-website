@@ -30,8 +30,7 @@
     <div id="popup">
 
         <div class="popup-content">
-            <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mugatunesofficial" title="Resonance Music" target="_blank" style="color: #cccccc; text-decoration: none;">Resonance Music</a> · <a href="https://soundcloud.com/mugatunesofficial/sets/audible-adderall-14" title="Chill &amp; Deep House ~ Study, Lounge, Relax, Gaming ~ Audible Adderall #14" target="_blank" style="color: #cccccc; text-decoration: none;">Chill &amp; Deep House ~ Study, Lounge, Relax, Gaming ~ Audible Adderall #14</a></div>
-            <button class="close-btn">X</button>
+             <button class="close-btn">X</button>
             <h2>Pomodoro Timer</h2>
             <p>Set timer length (in minutes): <input type="number" id="timer-length" value="15"></p>
             <p>Set Break length (in minutes): <input type="number" id="break-length" value="5"></p>
