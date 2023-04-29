@@ -6,8 +6,6 @@
         Document Editor
     </title>
     
-    <script src="https://cdn.tiny.cloud/1/jzc5hw3saurqozgvn95t59pw7dywf4j01ck37hmxovsxbcpw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    
 </head>
 
 <body>
