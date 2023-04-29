@@ -1,12 +1,10 @@
 function addClassEditorButton() {
     var textarea = $(this).next('textarea');
     //textarea.toggleClass('editor');
-
     if (textarea.hasClass('editor')) {
         textarea.removeClass('editor');
         tinymce.remove('textarea:not(.editor)');
         textarea.removeClass('editor');
-
     } else {
         textarea.addClass('editor');
         initializeEditor(textarea);

@@ -16,6 +16,7 @@ foreach ($tasks as $task) : ?>
         <form action="../controller/mainPageController.php" method="POST">
             <input class="titleKN spyInput" type="text" name="taskTitleEdit" value="<?= $task->taskTitle ?>">
             <div class="titleKN"> <?= $task->taskId ?></div>
+            <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
             <textarea class="auto-height " type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
             <input type="hidden" name="isDocument" value="<?= $task->isDocument ?>">
 
