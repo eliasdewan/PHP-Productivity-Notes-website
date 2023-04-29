@@ -8,8 +8,7 @@
     <script type="text/javascript" src="../script.js"></script>
     <script type="text/javascript" src="../ajax.js"></script>
 
-    
-    
+
     <script src="https://cdn.tiny.cloud/1/jzc5hw3saurqozgvn95t59pw7dywf4j01ck37hmxovsxbcpw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>

@@ -1,9 +1,16 @@
-function initializeEditor(textarea) {
-    textarea.classList.add('editor');
-    console.log("initialized", textarea)
+function addClassEditorButton() {
+    var textarea = $(this).prev('textarea');
+    textarea.toggleClass('editor');
+    initializeEditor();
+    console.log("pressed")
+    console.log(textarea);
+
+}
+function initializeEditor() {
     tinymce.init({
         selector: 'textarea.editor',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        plugins: ' autoresize anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+        autoresize_min_height: 30,
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
         tinycomments_mode: 'embedded',
         tinycomments_author: 'Author name',
@@ -14,13 +21,10 @@ function initializeEditor(textarea) {
     });
 }
 
+
 function changeIsDocumentValue(button, value) {
     $(button).prevAll('input[name="isDocument"]').val(value);
 }
-
-
-
-
 
 function redirect(event) {
     event.preventDefault(); // Prevent the link from opening normally
@@ -34,6 +38,15 @@ function redirect(event) {
 
 // For the j query
 $(document).ready(function () {
+
+
+    $('input[name="isDocument"]').each(function () {
+        if ($(this).val() == 1) {
+            $(this).prev('textarea').addClass('editor');
+            initializeEditor();
+        }
+    })
+
 
 
     $(document).ready(function () {
