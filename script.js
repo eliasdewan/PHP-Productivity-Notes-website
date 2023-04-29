@@ -1,9 +1,19 @@
 function addClassEditorButton() {
-    var textarea = $(this).prev('textarea');
-    textarea.toggleClass('editor');
-    initializeEditor();
-    console.log("pressed")
-    console.log(textarea);
+    var textarea = $(this).next('textarea');
+    //textarea.toggleClass('editor');
+
+    if (textarea.hasClass('editor')) {
+        textarea.removeClass('editor');
+        tinymce.remove('textarea:not(.editor)');
+        textarea.removeClass('editor');
+
+    } else {
+        textarea.addClass('editor');
+        initializeEditor(textarea);
+    }
+
+
+
 
 }
 function initializeEditor() {
@@ -22,8 +32,13 @@ function initializeEditor() {
 }
 
 
-function changeIsDocumentValue(button, value) {
-    $(button).prevAll('input[name="isDocument"]').val(value);
+function changeIsDocumentValue(button) {
+    if($(button).prev('input[name="isDocument"]').val() == 1){
+        $(button).prev('input[name="isDocument"]').val(0);
+    }
+    else{
+        $(button).prev('input[name="isDocument"]').val(1);
+    }
 }
 
 function redirect(event) {
