@@ -61,6 +61,16 @@ $(document).ready(function () {
         }
     })
 
+    $("#disableEditorsButton").click(function() {
+        console.log("Trigger");
+        tinymce.remove("textarea.editor");
+    });
+
+    $("#openEditorsButton").click(function() {
+        console.log("open trigger");
+        initializeEditor();
+    });
+
 
 
     // For ifram loding
