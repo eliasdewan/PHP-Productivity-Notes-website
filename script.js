@@ -14,6 +14,10 @@ function initializeEditor(textarea) {
     });
 }
 
+function changeIsDocumentValue(button) {
+    $(button).prevAll('input[name="isDocument"]').val('1');
+  }
+
 
 
 

@@ -8,6 +8,7 @@ class Task
     private $priority;
     private $dueDate;
     private $strategyId; // for database foreign code
+    private $isDocument;
 
     function __construct()
     {

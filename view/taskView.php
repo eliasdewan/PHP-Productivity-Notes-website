@@ -1,8 +1,9 @@
 <div class="createInput">
     <form action="../controller/mainPageController.php" method="post">
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
+        <input type="hidden" name="isDocument" value="0">
         <textarea  name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails auto-height"></textarea>
-        <button type="button" onclick="initializeEditor(this.previousElementSibling)">Initialize Editor</button>
+        <button type="button" onclick="initializeEditor(this.previousElementSibling); changeIsDocumentValue(this)">Initialize Editor</button>
 
         <input type="Submit" value="Create" class="createButton" name="createTaskButton" />
     </form>

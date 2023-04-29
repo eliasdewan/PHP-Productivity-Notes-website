@@ -8,6 +8,8 @@ $newTask->timeAllocation = 60; // 60 minutes
 $newTask->priority = 1;
 $newTask->dueDate = "2023-04-19";
 $newTask->strategyId = 1;
+$newTask->isDocument = $_POST["isDocument"];
+
 
 addTask($newTask);
 unset($_POST['taskTitleInput']);

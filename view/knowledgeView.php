@@ -1,6 +1,6 @@
 <form class="createInput" action="../controller/mainPageController.php" method="post">
     <input name="informationTitleAdd" type="text" placeholder="Title" required />
-
+    <input type="hidden" name="isDocument" value="0">
     <label for="addCategorySelector">Choose a category:</label>
     <select id="addCategorySelector" name="infromationCategorySelector">
         <option value="user">Custom text</option>
@@ -9,6 +9,7 @@
         <option value="iframe">iframe</option>
     </select>
     <textarea name="informationDescriptiomInput" placeholder="Data / use a / ifram from youtube or soundcloud" class="createInformationDetails auto-height"></textarea>
+
     <input type="Submit" value="Create" class="createButton" name="createInformationButton" />
 
 </form>

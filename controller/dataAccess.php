@@ -67,8 +67,8 @@ function getAllTasks()
 function addTask($newTask)
 {
     global $pdo;
-    $statement = $pdo->prepare("INSERT INTO task (taskTitle,taskDescription,timeAllocation,priority,dueDate,strategyId ) VALUES (?,?,?,?,?,?)");
-    $statement->execute([$newTask->taskTitle,$newTask->taskDescription,$newTask->timeAllocation,$newTask->priority,$newTask->dueDate,$newTask->strategyId]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("INSERT INTO task (taskTitle,taskDescription,timeAllocation,priority,dueDate,strategyId,isDocument ) VALUES (?,?,?,?,?,?,?)");
+    $statement->execute([$newTask->taskTitle,$newTask->taskDescription,$newTask->timeAllocation,$newTask->priority,$newTask->dueDate,$newTask->strategyId,$newTask->isDocument]); // execute will go into the previous line ? point
 }
 function removeTask($taskId)
 {
