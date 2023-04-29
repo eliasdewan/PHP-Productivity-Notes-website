@@ -12,6 +12,7 @@ $newTask->isDocument = $_POST["isDocument"];
 
 
 addTask($newTask);
+
 unset($_POST['taskTitleInput']);
 }
 
@@ -34,7 +35,10 @@ switch ($taskAction) {
         break;
 }
 
-$tasks = getAllTasks();
+
+//$tasks = getAllTasks();
+
+$tasks = getTasksByUserId(0); // For now using user id 0
 
 require_once("../view/taskView.php")
 ?>

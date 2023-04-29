@@ -49,7 +49,7 @@ switch ($knowledgeAction) {
 }
 
 
-$knowledgeList = getAllKnowledge();
+$knowledgeList = getKnowledgeByUserId(0); // For now using default
 
 
 
