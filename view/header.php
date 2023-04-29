@@ -4,7 +4,7 @@
 <head>
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="../styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script type="text/javascript" src="../script.js"></script>
     <script type="text/javascript" src="../ajax.js"></script>
 

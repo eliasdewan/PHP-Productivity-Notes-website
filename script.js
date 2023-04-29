@@ -14,9 +14,9 @@ function initializeEditor(textarea) {
     });
 }
 
-function changeIsDocumentValue(button) {
-    $(button).prevAll('input[name="isDocument"]').val('1');
-  }
+function changeIsDocumentValue(button, value) {
+    $(button).prevAll('input[name="isDocument"]').val(value);
+}
 
 
 
@@ -34,6 +34,7 @@ function redirect(event) {
 
 // For the j query
 $(document).ready(function () {
+
 
     $(document).ready(function () {
         $('.auto-height').each(function () {
