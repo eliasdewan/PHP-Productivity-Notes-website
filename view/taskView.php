@@ -5,7 +5,7 @@
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
         <input type="hidden" name="isDocument" value="0">
         
-        <textarea name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails auto-height "></textarea>
+        <textarea name="taskDescriptiomInput" type="text" placeholder="Details" class="createTaskDetails auto-height "></textarea>
         <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
 
         <input type="Submit" value="Create" class="createButton" name="createTaskButton" />

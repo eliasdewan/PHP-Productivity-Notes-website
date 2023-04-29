@@ -3,7 +3,7 @@
 // Checking the submit was pressed
 
 
-if (isset($_POST["createInformationButton"]) && $_POST["informationTitleAdd"] !== "") {
+if ($_POST["createInformationButton"]  && $_POST["informationTitleAdd"] ?? '') {
     $newInfromation = new Knowledge();
 
     $newInfromation->knowledgeTitle = $_POST["informationTitleAdd"];
@@ -16,6 +16,7 @@ if (isset($_POST["createInformationButton"]) && $_POST["informationTitleAdd"] !=
 
     unset($_POST['createInformationButton']);
     addKnowledge($newInfromation);
+    print_r($newInfromation);
 }
 
 

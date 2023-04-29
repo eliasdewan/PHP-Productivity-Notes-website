@@ -1,4 +1,11 @@
 function addClassEditorButton() {
+    if ($(this).siblings('.html').is(':visible')) {
+        $(this).siblings('.html').toggle();
+      }
+      else if($(this).siblings('input[name="isDocument"]').val() == 1){
+        $(this).siblings('.html').toggle();
+      }
+
 
     var textarea = $(this).siblings('textarea');
     //textarea.toggleClass('editor');
@@ -6,9 +13,11 @@ function addClassEditorButton() {
         textarea.removeClass('editor');
         tinymce.remove('textarea:not(.editor)');
         textarea.removeClass('editor');
+        textarea.siblings('input[name="isDocument"]').val(0);
 
     } else {
         textarea.addClass('editor');
+        textarea.siblings('input[name="isDocument"]').val(1);
         initializeEditor(textarea);
         
     }
@@ -34,12 +43,12 @@ function initializeEditor() {
 
 
 function changeIsDocumentValue(button) {
-    if($(button).siblings('input[name="isDocument"]').val() == 1){
-        $(button).siblings('input[name="isDocument"]').val(0);
-    }
-    else{
-        $(button).siblings('input[name="isDocument"]').val(1);
-    }
+ //   if($(button).siblings('input[name="isDocument"]').val() == 1){
+//        $(button).siblings('input[name="isDocument"]').val(0);
+//    }
+//    else{
+ //       $(button).siblings('input[name="isDocument"]').val(1);
+ //   }
 }
 
 function redirect(event) {
@@ -55,10 +64,15 @@ function redirect(event) {
 // For the j query
 $(document).ready(function () {
 
+    //$(this).val = $(this).val
+
     $('input[name="isDocument"]').each(function () {
         if ($(this).val() == 1) {
-            $(this).siblings('textarea').addClass('editor');
-            initializeEditor();
+            //$(this).siblings('textarea').addClass('editor');
+            $(this).siblings('textarea').toggle();
+            $(this).siblings('.html').toggle();
+
+            //initializeEditor();
         }
     })
 
