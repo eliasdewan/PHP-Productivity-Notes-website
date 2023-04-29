@@ -4,7 +4,7 @@
     <form class="create createTask" action="../controller/mainPageController.php" method="post">
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
         <input type="hidden" name="isDocument" value="0">
-        
+
         <textarea name="taskDescriptiomInput" type="text" placeholder="Details" class="createTaskDetails auto-height "></textarea>
         <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
 
@@ -17,6 +17,9 @@ foreach ($tasks as $task) : ?>
 
         <form action="../controller/mainPageController.php" method="POST">
             <input class="titleKN spyInput" type="text" name="taskTitleEdit" value="<?= $task->taskTitle ?>">
+            <?php if ($task->isDocument == 1) : ?>
+                <span>This is a Document, use editor</span>
+            <?php endif; ?>
             <div class="titleKN"> <?= $task->taskId ?></div>
             <div class="html" hidden> <?= $task->taskDescription ?></div>
             <textarea class="auto-height " type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
