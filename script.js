@@ -31,11 +31,13 @@ function initializeEditor() {
 
 
 function changeIsDocumentValue(button) {
-    if($(button).prev('input[name="isDocument"]').val() == 1){
-        $(button).prev('input[name="isDocument"]').val(0);
+
+
+    if($(button).siblings('input[name="isDocument"]').val() == 1){
+        $(button).siblings('input[name="isDocument"]').val(0);
     }
     else{
-        $(button).prev('input[name="isDocument"]').val(1);
+        $(button).siblings('input[name="isDocument"]').val(1);
     }
 }
 
@@ -51,7 +53,6 @@ function redirect(event) {
 
 // For the j query
 $(document).ready(function () {
-
 
     $('input[name="isDocument"]').each(function () {
         if ($(this).val() == 1) {

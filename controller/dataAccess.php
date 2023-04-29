@@ -76,11 +76,11 @@ function removeTask($taskId)
     $statement = $pdo->prepare("DELETE FROM task WHERE taskId = ?");
     $statement->execute([$taskId]); // execute will go into the previous line ? point
 }
-function updateTask($title,$description,$id) // UPDATE TASK STRING VALUES QUOTED
+function updateTask($title,$description,$isDocument,$id) // UPDATE TASK STRING VALUES QUOTED
 {
     global $pdo;
-    $statement = $pdo->prepare("UPDATE task SET taskTitle = ?, taskDescription = ? WHERE  taskId = ?");
-    $statement->execute([$title,$description,$id]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("UPDATE task SET taskTitle = ?, taskDescription = ?, isDocument=? WHERE  taskId = ?");
+    $statement->execute([$title,$description,$isDocument,$id]); // execute will go into the previous line ? point
 }
 
 // KNOWLEGE FUNCTIONS
@@ -108,11 +108,12 @@ function removeKnowledge($knowledgeId)
     $statement->execute([$knowledgeId]); // execute will go into the previous line ? point
 }
 
-function updateKnowledge($title,$description,$id) // UPDATE TASK STRING VALUES QUOTED
+function updateKnowledge($title,$description,$isDocument,$id) // UPDATE TASK STRING VALUES QUOTED
 {
+    print_r($title." ".$description." ".$isDocument." ".$id);
     global $pdo;
-    $statement = $pdo->prepare("UPDATE knowledge SET knowledgeTitle = ?, knowledgeDescription = ? WHERE  knowledgeId = ?");
-    $statement->execute([$title,$description,$id]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("UPDATE knowledge SET knowledgeTitle = ?, knowledgeDescription = ?, isDocument = ? WHERE  knowledgeId = ?");
+    $statement->execute([$title,$description,$isDocument,$id]); // execute will go into the previous line ? point
 }
 
 

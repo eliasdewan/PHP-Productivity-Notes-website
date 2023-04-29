@@ -28,8 +28,10 @@ switch ($knowledgeAction) {
         $id = $_POST['knowledgeId'] ?? '';
         $title = $_POST['knowledgeTitleEdit'] ?? '';
         $description = $_POST['knowledgeDescriptionEdit'] ?? '';
+        //$isDocument = $_POST['isDocument'] ?? '';
+        $isDocument = 0;
         //print_r($title."".$description." ".$id);
-        updateKnowledge($title, $description, $id);
+        updateKnowledge($title, $description,$isDocument, $id);
         // Implement update code for data acess
         echo "in the edit";
 
@@ -52,4 +54,3 @@ $knowledgeList = getAllKnowledge();
 
 
 require_once '../view/knowledgeView.php';
-?>

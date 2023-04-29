@@ -23,7 +23,8 @@ switch ($taskAction) {
         $id = $_POST['taskId'] ?? '';
         $title = $_POST['taskTitleEdit'] ?? '';
         $description = $_POST['taskDescriptionEdit'] ?? '';
-        updateTask($title,$description,$id);
+        $isDocument = $_POST['isDocument'] ?? '';
+        updateTask($title,$description,$isDocument,$id);
         break;
     case 'delete':
         $id = $_POST['taskId'] ?? '';
