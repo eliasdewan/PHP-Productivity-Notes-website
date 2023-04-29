@@ -1,5 +1,5 @@
 function addClassEditorButton() {
-    var textarea = $(this).next('textarea');
+    var textarea = $(this).siblings('textarea');
     //textarea.toggleClass('editor');
     if (textarea.hasClass('editor')) {
         textarea.removeClass('editor');
@@ -56,11 +56,18 @@ $(document).ready(function () {
 
     $('input[name="isDocument"]').each(function () {
         if ($(this).val() == 1) {
-            $(this).prev('textarea').addClass('editor');
+            $(this).siblings('textarea').addClass('editor');
             initializeEditor();
         }
     })
 
+
+
+    // For ifram loding
+    $('button.load-iframe').click(function() {
+        var inputVal = $(this).next('input').val();
+        $(this).replaceWith(inputVal)
+      });
 
 
     $(document).ready(function () {

@@ -2,9 +2,9 @@
     <form class="create createTask" action="../controller/mainPageController.php" method="post">
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
         <input type="hidden" name="isDocument" value="0">
-        <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
-        <textarea name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails auto-height "></textarea>
         
+        <textarea name="taskDescriptiomInput" placeholder="Details" class="createTaskDetails auto-height "></textarea>
+        <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
 
         <input type="Submit" value="Create" class="createButton" name="createTaskButton" />
     </form>
@@ -16,8 +16,8 @@ foreach ($tasks as $task) : ?>
         <form action="../controller/mainPageController.php" method="POST">
             <input class="titleKN spyInput" type="text" name="taskTitleEdit" value="<?= $task->taskTitle ?>">
             <div class="titleKN"> <?= $task->taskId ?></div>
-            <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
             <textarea class="auto-height " type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
+            <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
             <input type="hidden" name="isDocument" value="<?= $task->isDocument ?>">
 
             <!-- BUTTONS FOR TASKS -->

@@ -54,8 +54,10 @@ foreach ($knowledgeList as $knowledge) : ?>
             elseif ($knowledge->knowledgeCategory == "iframe") : ?>
                 <span>IFRAME</span>
                 <input placeholder="Update Title" name="knowledgeTitleEdit" class="titleKN" type="text" value="<?= $knowledge->knowledgeTitle ?>">
-                <?= $knowledge->knowledgeDescription ?>
+                <!--<?= $knowledge->knowledgeDescription ?>-->
                 <!--   <div class="descriptionKN"> <?= $knowledge->knowledgeDescription ?></div>-->
+
+                <button class="load-iframe"> Load iframe</button>
                 <input placeholder="USE a iframe link" name="knowledgeDescriptionEdit" class="descriptionKN" type="text" value="<?= htmlspecialchars($knowledge->knowledgeDescription) ?>">
 
 
@@ -71,9 +73,9 @@ foreach ($knowledgeList as $knowledge) : ?>
             <!-- INFORMATION BUTTONS HERE -->
             <div class="buttons">
                 <input type="hidden" name="knowledgeId" value="<?= $knowledge->knowledgeId ?>">
-                <?php if (!$knowledge->fixed): ?>
-                <button type="submit" name="knowledgeAction" value="edit">Edit</button>
-                <button type="submit" name="knowledgeAction" value="delete">Delete</button>
+                <?php if (!$knowledge->fixed) : ?>
+                    <button type="submit" name="knowledgeAction" value="edit">Edit</button>
+                    <button type="submit" name="knowledgeAction" value="delete">Delete</button>
                 <?php endif; ?>
 
             </div>
