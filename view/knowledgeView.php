@@ -38,17 +38,29 @@ foreach ($knowledgeList as $knowledge) : ?>
         <form action="../controller/mainPageController.php" method="POST">
             <?php
             if ($knowledge->knowledgeCategory == "web") :
-
                 $url = $knowledge->knowledgeDescription;
-                $html = file_get_contents($url);
-                preg_match("/<title>(.+)<\/title>/siU", $html, $matches);
-                $title = (count($matches) >= 2) ? $matches[1] : "No title found";
+                $api_key = "2d9164fd56aca2a0f6a66d6a3a6319de";
+
+                if(isset($_SESSION['linkpreview']) && isset($_SESSION['linkpreview'][$url])) {
+                    $data = $_SESSION['linkpreview'][$url];
+                    //$knowledge->knowledgeTitle = "FROM SESSION";
+                  } else {
+                    $response = file_get_contents("http://api.linkpreview.net/?key=$api_key&q=$url");
+                    $data = json_decode($response, true);
+                    $_SESSION['linkpreview'][$url] = $data;
+                  }
+
+
 
             ?>
                 <span>WEB ELEMENT</span>
                 <input placeholder="Update Title" name="knowledgeTitleEdit" class="titleKN" type="text" value="<?= $knowledge->knowledgeTitle ?>">
-                <a href="<?= $knowledge->knowledgeDescription ?>" target="_blank"><?= $title ?></a>
-                <!--   <div class="descriptionKN"> <?= $knowledge->knowledgeDescription ?></div>-->
+                <?php if (!empty($data['description'])) : ?>
+                    <img src="<?= $data['image'] ?>" style="max-width: 300px; max-height: 300px"; alt="<?= $data['description'] ?>">
+                    <div><?= $data['description']?></div>
+                <?php endif; ?>
+                <br>
+                <a href="<?= $knowledge->knowledgeDescription ?>" target="_blank"><?= $data['title'] = $data['title'] == '' ? 'Title Not Found' : $data['title']; ?></a>
                 <input placeholder="USE a url" name="knowledgeDescriptionEdit" class="descriptionKN" type="text" value="<?= $knowledge->knowledgeDescription ?>">
 
             <?php
