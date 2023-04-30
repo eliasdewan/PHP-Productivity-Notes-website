@@ -5,9 +5,9 @@
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />
         <input type="hidden" name="isDocument" value="0">
 
-        <textarea name="taskDescriptiomInput" type="text" placeholder="Details" class="createTaskDetails auto-height "></textarea>
+        <textarea class="createTaskDetails auto-height" type="text" name="taskDescriptionInput"  placeholder="Details"></textarea>
 
-        <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
+        <button type="button" onclick="addClassEditorButton.call(this)">Toggle Editor</button>
         <label for="priority">Priority:</label>
         <select class="priority" name="priority">
             <option value="low">Low</option>
@@ -40,25 +40,24 @@ foreach ($tasks as $task) : ?>
             <!--<div class="titleKN"> <?= $task->taskId ?></div> -->
             <div class="html" hidden> <?= $task->taskDescription ?></div>
             <textarea class="auto-height " type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
-            <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
+            <button type="button" onclick="addClassEditorButton.call(this)">Toggle Editor</button>
 
             <label for="priority">Priority:</label>
-            <select class="priority forEdit" name="priority">
+            <span class="taskAttributeInformation"><?= $task->priority ?> </span>
+            <select hidden class="priority forTaskEdit" name="priority">
                 <option value="low" <?= ($task->priority == 'low') ? 'selected' : '' ?>>Low</option>
                 <option value="normal" <?= ($task->priority == 'normal') ? 'selected' : '' ?>>Normal</option>
                 <option value="high" <?= ($task->priority == 'high') ? 'selected' : '' ?>>High</option>
             </select>
 
             <label for="progress">Progress:</label>
-            <input type="range" class="progress forEdit" name="progress" min="0" max="100" value="<?= $task->progress?>" step="20">
+            <input type="range" class="progress " name="progress" min="0" max="100" value="<?= $task->progress ?>" step="20">
             <label for="myDateTime">Deadline:</label>
-            <input type="datetime-local" class="myDateTime forEdit" name="dueDate" value="<?= $task->dueDate?>">
-            <label for="time-input">Time Allocation:</label>
-            <input type="time" class="time-input forEdit" name="timeAllocation" value="<?= $task->timeAllocation?>">
-
-
-
-
+            <span class="taskAttributeInformation"><?= $task->dueDate ?> </span>
+            <input hidden type="datetime-local" class="myDateTime forTaskEdit" name="dueDate" value="<?= $task->dueDate ?>">
+            <label for="time-input forTaskEdit">Time Allocation:</label>
+            <input hidden type="time" class="time-input forTaskEdit" name="timeAllocation" value="<?= $task->timeAllocation ?>">
+            <span class="taskAttributeInformation forTaskEdit"><?= $task->timeAllocation ?> </span>
 
 
             <input type="hidden" name="isDocument" value="<?= $task->isDocument ?>">
@@ -68,8 +67,8 @@ foreach ($tasks as $task) : ?>
 
 
                 <input type="hidden" name="taskId" value="<?= $task->taskId ?>">
-                <button type="submit" name="taskAction" value="edit">Edit</button>
-                <button type="submit" name="taskAction" value="delete">Delete</button>
+                <button hidden class="forTaskEdit" type="submit" name="taskAction" value="edit">Edit</button>
+                <button hidden class="forTaskEdit" type="submit" name="taskAction" value="delete">Delete</button>
 
             </div>
         </form>

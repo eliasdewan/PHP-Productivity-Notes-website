@@ -1,23 +1,37 @@
 function addClassEditorButton() {
     if ($(this).siblings('.html').is(':visible')) {
         $(this).siblings('.html').toggle();
+        
+        
     }
     else if ($(this).siblings('input[name="isDocument"]').val() == 1) {
         $(this).siblings('.html').toggle();
+        
+        
+        
     }
-
 
     var textarea = $(this).siblings('textarea');
     //textarea.toggleClass('editor');
     if (textarea.hasClass('editor')) {
+
         textarea.removeClass('editor');
         tinymce.remove('textarea:not(.editor)');
         textarea.removeClass('editor');
         textarea.siblings('input[name="isDocument"]').val(0);
 
+        $(this).siblings(".taskAttributeInformation").show();
+        $(this).siblings(".buttons").find(".forTaskEdit").hide();
+        $(this).siblings(".forTaskEdit").hide();
+
+
+
     } else {
         textarea.addClass('editor');
         textarea.siblings('input[name="isDocument"]').val(1);
+        $(this).siblings(".taskAttributeInformation").hide();
+        $(this).siblings(".buttons").find(".forTaskEdit").show();
+        $(this).siblings(".forTaskEdit").show();
         initializeEditor(textarea);
 
     }
@@ -42,14 +56,6 @@ function initializeEditor() {
 }
 
 
-function changeIsDocumentValue(button) {
-    //   if($(button).siblings('input[name="isDocument"]').val() == 1){
-    //        $(button).siblings('input[name="isDocument"]').val(0);
-    //    }
-    //    else{
-    //       $(button).siblings('input[name="isDocument"]').val(1);
-    //   }
-}
 
 function redirect(event) {
     event.preventDefault(); // Prevent the link from opening normally
@@ -143,32 +149,6 @@ $(document).ready(function () {
 
     // For css
 
-    // To get the title of a website
-    $('a').each(function () {
-        var link = $(this).attr('href');
-        if (link && link.startsWith('http')) {
-            $.ajax({
-                url: link,
-                type: 'GET',
-                success: function (response) {
-                    var title = $(response).filter('title').text();
-                    $('#website-title').append('<p>' + title + '</p>');
-                }
-            });
-        }
-    });
-
-
-    function saveContent() {
-        var content = tinymce.activeEditor.getContent();
-        $.ajax({
-            type: "POST",
-            url: "save.php",
-            data: { content: content }
-        }).done(function (msg) {
-            alert(msg);
-        });
-    }
 
     // For timer ----- ####
     (function autoPomodoroTimer() {
