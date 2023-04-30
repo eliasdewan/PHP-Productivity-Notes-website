@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once "../model/user.php";
 require_once "dataAccess.php";
@@ -14,6 +15,8 @@ if (isset($_POST['login'])) {
 
     if (getUser($username, $password)) {
         // Add to session
+        $_SESSION["user"] = getUser($username, $password);
+
 
         header("Location: mainPageController.php");
         exit();
