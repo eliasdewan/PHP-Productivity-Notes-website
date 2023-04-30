@@ -9,7 +9,7 @@ if (isset($_POST["createInformationButton"]) && $_POST["informationTitleAdd"] !=
     $newInfromation->knowledgeTitle = $_POST["informationTitleAdd"];
     $newInfromation->knowledgeDescription = $_POST["informationDescriptiomInput"];
     $newInfromation->knowledgeCategory = $_POST["infromationCategorySelector"];
-    $newInfromation->userId = 0;//$_POST["infromationCategorySelector"];
+    $newInfromation->userId = $_SESSION['user']->userId ?? 0;//$_POST["infromationCategorySelector"];
     $newInfromation->isDocument = 0;//$_POST["infromationCategorySelector"];
     $newInfromation->sortOrder = 0;//$_POST["infromationCategorySelector"];
 
@@ -53,7 +53,7 @@ switch ($knowledgeAction) {
 }
 
 
-$knowledgeList = getKnowledgeByUserId(0); // For now using default
+$knowledgeList = getKnowledgeByUserId($_SESSION['user']->userId ?? 0); // For now using default
 
 
 
