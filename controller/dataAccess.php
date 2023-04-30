@@ -87,11 +87,11 @@ function removeTask($taskId)
     $statement = $pdo->prepare("DELETE FROM task WHERE taskId = ?");
     $statement->execute([$taskId]); // execute will go into the previous line ? point
 }
-function updateTask($title, $description, $isDocument, $id) // UPDATE TASK STRING VALUES QUOTED
+function updateTask($title, $description, $priority, $progress, $timeAllocation, $dueDate, $projectId, $isDocument, $id) // UPDATE TASK STRING VALUES QUOTED
 {
     global $pdo;
-    $statement = $pdo->prepare("UPDATE task SET taskTitle = ?, taskDescription = ?, isDocument=? WHERE  taskId = ?");
-    $statement->execute([$title, $description, $isDocument, $id]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("UPDATE task SET taskTitle = ?, taskDescription = ?, priority = ?,progress = ?,timeAllocation = ?,dueDate = ?,projectId = ?, isDocument=? WHERE  taskId = ?");
+    $statement->execute([$title, $description, $priority, $progress, $timeAllocation, $dueDate, $projectId, $isDocument, $id]); // execute will go into the previous line ? point
 }
 
 // KNOWLEGE FUNCTIONS

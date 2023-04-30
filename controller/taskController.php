@@ -23,11 +23,18 @@ $taskAction = $_POST['taskAction'] ?? '';
 // for task editing 
 switch ($taskAction) {
     case 'edit':
-        $id = $_POST['taskId'] ?? '';
         $title = $_POST['taskTitleEdit'] ?? '';
         $description = $_POST['taskDescriptionEdit'] ?? '';
+        $priority=$_POST['priority'] ?? '';
+        $progress = $_POST['progress'] ?? '';
+        $timeAllocation = $_POST['timeAllocation'] ?? '';
+        $dueDate = $_POST['dueDate'];
+        $projectId= $_POST['projectId'] ?? 0;
         $isDocument = $_POST['isDocument'] ?? '';
-        updateTask($title,$description,$isDocument,$id);
+        $id = $_POST['taskId'] ?? '';
+
+
+        updateTask($title,$description,$priority,$progress,$timeAllocation,$dueDate,$projectId,$isDocument,$id);
         break;
     case 'delete':
         $id = $_POST['taskId'] ?? '';
