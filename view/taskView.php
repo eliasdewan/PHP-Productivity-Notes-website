@@ -37,7 +37,7 @@ foreach ($tasks as $task) : ?>
             <?php if ($task->isDocument == 1) : ?>
                 <span>This is a Document, use editor</span>
             <?php endif; ?>
-            <div class="titleKN"> <?= $task->taskId ?></div>
+            <!--<div class="titleKN"> <?= $task->taskId ?></div> -->
             <div class="html" hidden> <?= $task->taskDescription ?></div>
             <textarea class="auto-height " type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
             <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
