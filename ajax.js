@@ -2,7 +2,7 @@
 // USe ajax from the controller url
 $(document).ready(function () {
 
-    $('.createTask').submit(function (event) {
+    $('.createTaskOFF').submit(function (event) {
         event.preventDefault();
         var formData = $(this).serialize();
         $.ajax({

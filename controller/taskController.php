@@ -49,7 +49,6 @@ switch ($taskAction) {
 
 $tasks = getTasksByUserId($_SESSION['user']->userId ?? 0); // For now using user id 0
 
-print_r($tasks);
 //print_r($_SESSION['user']->userId);
 require_once("../view/taskView.php")
 ?>
