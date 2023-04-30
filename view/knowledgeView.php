@@ -6,10 +6,10 @@
         <option value="book">Book quotes</option>
         <option value="web">Weblink</option>
         <option value="user">Custom text</option>
-        <option value="knowledge">Book quotes</option>
+        <option value="knowledge">Knowledge</option>
         <option value="iframe">iframe</option>
     </select>
-    <textarea name="informationDescriptiomInput" placeholder="Data / use a / ifram from youtube or soundcloud" class="createInformationDetails auto-height"></textarea>
+    <textarea name="informationDescriptiomInput" placeholder="Data / use a / ifram from youtube or soundcloud or just use html !caution non broken HTML" class="createInformationDetails auto-height"></textarea>
 
     <input type="Submit" value="Create" class="createButton" name="createInformationButton" />
 

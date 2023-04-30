@@ -40,7 +40,7 @@ foreach ($tasks as $task) : ?>
             <div class="titleKN"> <?= $task->taskId ?></div>
             <div class="html" hidden> <?= $task->taskDescription ?></div>
             <textarea class="auto-height " type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
-            <button type="button forEdit" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
+            <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
 
             <label for="priority">Priority:</label>
             <select class="priority forEdit" name="priority">

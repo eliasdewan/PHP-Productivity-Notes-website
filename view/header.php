@@ -32,7 +32,7 @@
 
         <div class="popup-content">
             <button class="close-btn">X</button>
-            <h2>Pomodoro Timer</h2>
+            <h2>Pomodoro Timer </h2>
             <p>Set timer length (in minutes): <input type="number" id="timer-length" value="15"></p>
             <p>Set Break length (in minutes): <input type="number" id="break-length" value="5"></p>
             <button id="start-btn">Start</button>
