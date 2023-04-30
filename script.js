@@ -22,10 +22,10 @@ function addClassEditorButton() {
 
     }
 
-
-
-
 }
+
+
+
 function initializeEditor() {
     tinymce.init({
         selector: 'textarea.editor',
@@ -76,6 +76,41 @@ $(document).ready(function () {
             //initializeEditor();
         }
     })
+
+
+    $("#knowledgeSearchInput").on("keyup", function() {
+        var inputValue = $(this).val().toLowerCase();
+        $(".card.spyInput").each(function() {
+            var content = $(this).html().toLowerCase(); // include PHP tags with html()
+            var found = false;
+            $(this).find('*').each(function() {
+                var tagContent = $(this).text().toLowerCase();
+                if (tagContent.includes(inputValue)) {
+                    found = true;
+                    return false; // stop searching when found
+                }
+            });
+            if (found || content.includes(inputValue)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+    
+
+
+    // for checkbox of knowlage
+    $('input[type="checkbox"]').click(function() {
+        if($(this).is(":checked")) {
+            // checkbox is checked, show the div
+            $('.card'+'.' + $(this).attr('name')).show();
+        } else {
+            // checkbox is unchecked, hide the div
+            $('.' + $(this).attr('name')).hide();
+        }
+    });
+
 
     $("#disableEditorsButton").click(function () {
         console.log("Trigger");

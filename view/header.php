@@ -23,7 +23,7 @@
             <a href="#">PROJECT</a>
             <a href="scenarioPageController.php">SCENARIO</a>
             <a href="docEditorController.php" onclick="redirect(event)">WORD PROCESSING</a>
-                <a href="loginController.php?logout"><?= $_SESSION['user']->userName ?? 'Guest' ?><br>Logout</a>
+            <a href="loginController.php?logout"><?= $_SESSION['user']->userName ?? 'Guest' ?><br>Logout</a>
         </nav>
     </header>
 

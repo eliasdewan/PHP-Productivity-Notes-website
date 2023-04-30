@@ -3,9 +3,10 @@
     <input type="hidden" name="isDocument" value="0">
     <label for="addCategorySelector">Choose a category:</label>
     <select id="addCategorySelector" name="infromationCategorySelector">
-        <option value="user">Custom text</option>
         <option value="book">Book quotes</option>
         <option value="web">Weblink</option>
+        <option value="user">Custom text</option>
+        <option value="knowledge">Book quotes</option>
         <option value="iframe">iframe</option>
     </select>
     <textarea name="informationDescriptiomInput" placeholder="Data / use a / ifram from youtube or soundcloud" class="createInformationDetails auto-height"></textarea>
@@ -13,13 +14,12 @@
     <input type="Submit" value="Create" class="createButton" name="createInformationButton" />
 
 </form>
-
 <div class="checkboxes">
     <label>
         <input type="checkbox" name="book" checked> Book
     </label>
     <label>
-        <input type="checkbox" name="custom" checked> Custom
+        <input type="checkbox" name="user" checked> Custom
     </label>
     <label>
         <input type="checkbox" name="web" checked> Web
@@ -34,10 +34,11 @@
 
 <?php
 foreach ($knowledgeList as $knowledge) : ?>
-    <div class="card spyInput">
+    <div class="card spyInput <?= $knowledge->knowledgeCategory ?>">
         <form action="../controller/mainPageController.php" method="POST">
             <?php
             if ($knowledge->knowledgeCategory == "web") :
+
                 $url = $knowledge->knowledgeDescription;
                 $html = file_get_contents($url);
                 preg_match("/<title>(.+)<\/title>/siU", $html, $matches);

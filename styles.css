@@ -290,6 +290,7 @@ input[type="number"] {
     margin-bottom: 5px;
 }
 
+
 .login input[type="text"],
 .login input[type="password"] {
     width: 100%;
@@ -321,4 +322,12 @@ input[type="number"] {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+.bigSearch {
+    width: 80%;
+    height: 50px;
+    font-size: 1.5em;
+    text-align: center;
+    margin: auto;
 }
