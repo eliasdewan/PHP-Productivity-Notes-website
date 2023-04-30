@@ -1,5 +1,5 @@
-<button name="disableEditors" id="disableEditorsButton">Close All Editors</button>
-<button name="openEditors" id="openEditorsButton">Open Allowed Editors</button>
+<button hidden name="disableEditors" id="disableEditorsButton">Close All Editors</button>
+<button hidden name="openEditors" id="openEditorsButton">Open Allowed Editors</button>
 <div class="createInput">
     <form class="create createTask" action="../controller/mainPageController.php" method="post">
         <input name="taskTitleInput" type="text" placeholder="Title" class="createTaskTitle" required />

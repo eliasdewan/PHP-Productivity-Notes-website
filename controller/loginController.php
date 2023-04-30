@@ -16,7 +16,9 @@ if (isset($_POST['login'])) {
     if (getUser($username, $password)) {
         // Add to session
         $_SESSION["user"] = getUser($username, $password);
-
+       // print_r($_SESSION["user"]);
+       // print_r($_SESSION["user"]->userId);
+        
 
         header("Location: mainPageController.php");
         exit();

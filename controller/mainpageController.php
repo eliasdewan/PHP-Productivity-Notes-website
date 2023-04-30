@@ -1,7 +1,10 @@
 <?php
 require_once "../model/knowledge.php";
 require_once "../model/task.php";
+require_once "../model/user.php";
 require_once "dataAccess.php";
+session_start();
+
 
 
 
