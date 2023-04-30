@@ -6,6 +6,23 @@
         <input type="hidden" name="isDocument" value="0">
 
         <textarea name="taskDescriptiomInput" type="text" placeholder="Details" class="createTaskDetails auto-height "></textarea>
+
+        <label for="priority">Priority:</label>
+        <select class="priority" name="priority">
+            <option value="low">Low</option>
+            <option value="normal" selected>Normal</option>
+            <option value="high">High</option>
+        </select>
+        <label for="progress">Progress:</label>
+        <input type="range" class="progress" name="progress" min="0" max="100" value="1" step="20">
+        <label for="myDateTime">Select a Deadline:</label>
+        <input type="datetime-local" class="myDateTime" name="dueDate">
+        <label for="time-input">How Long should it take:</label>
+        <input type="time" class="time-input" name="timeAllocation" value="00:05">
+
+
+
+
         <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
 
         <input type="Submit" value="Create" class="createButton" name="createTaskButton" />
@@ -23,6 +40,25 @@ foreach ($tasks as $task) : ?>
             <div class="titleKN"> <?= $task->taskId ?></div>
             <div class="html" hidden> <?= $task->taskDescription ?></div>
             <textarea class="auto-height " type="text" name="taskDescriptionEdit"><?= $task->taskDescription ?></textarea>
+
+            <label for="priority">Priority:</label>
+            <select class="priority" name="priority">
+                <option value="low">Low</option>
+                <option value="normal" selected>Normal</option>
+                <option value="high">High</option>
+            </select>
+            <label for="progress">Progress:</label>
+            <input type="range" class="progress" name="progress" min="0" max="100" value="1" step="20">
+            <label for="myDateTime">Deadline:</label>
+            <input type="datetime-local" class="myDateTime" name="dueDate">
+            <label for="time-input">Time Allocation:</label>
+            <input type="time" class="time-input" name="timeAllocation" value="00:05">
+
+
+
+
+
+
             <button type="button" onclick="addClassEditorButton.call(this); changeIsDocumentValue(this)">Toggle Editor</button>
             <input type="hidden" name="isDocument" value="<?= $task->isDocument ?>">
 
