@@ -5,11 +5,11 @@ if (isset($_POST["taskTitleInput"]) && $_POST["taskTitleInput"] !== "") {
 $newTask = new Task();
 $newTask->taskTitle = $_POST["taskTitleInput"];
 $newTask->taskDescription = $_POST["taskDescriptiomInput"];
-$newTask->timeAllocation = 60; // 60 minutes
-$newTask->priority = 1;
-$newTask->dueDate = "2023-04-19";
+$newTask->timeAllocation = $_POST["timeAllocation"];; // 60 minutes
+$newTask->priority = $_POST["priority"] ?? 9;
+$newTask->dueDate = $_POST["dueDate"]?? 2023-04-19;//"";
 $newTask->projectId = 0;
-$newTask->progress = 0;
+$newTask->progress = $_POST["progress"] ?? 0;
 $newTask->userId = $_SESSION['user']->userId ?? 0;
 $newTask->isDocument = $_POST["isDocument"];
 
