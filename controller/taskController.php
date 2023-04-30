@@ -15,7 +15,8 @@ $newTask->userId = $_SESSION['user']->userId ?? 0;
 $newTask->isDocument = $_POST["isDocument"];
 addTask($newTask);
 
-print_r($_POST);
+header("Location: " . $_SERVER['REQUEST_URI']);
+exit;
 }
 
 $taskAction = $_POST['taskAction'] ?? '';

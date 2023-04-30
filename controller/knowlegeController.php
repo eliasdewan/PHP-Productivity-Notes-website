@@ -9,13 +9,17 @@ if (isset($_POST["createInformationButton"]) && $_POST["informationTitleAdd"] !=
     $newInfromation->knowledgeTitle = $_POST["informationTitleAdd"];
     $newInfromation->knowledgeDescription = $_POST["informationDescriptiomInput"];
     $newInfromation->knowledgeCategory = $_POST["infromationCategorySelector"];
-    $newInfromation->userId = $_SESSION['user']->userId ?? 0;//$_POST["infromationCategorySelector"];
-    $newInfromation->isDocument = 0;//$_POST["infromationCategorySelector"];
-    $newInfromation->sortOrder = 0;//$_POST["infromationCategorySelector"];
+    $newInfromation->userId = $_SESSION['user']->userId ?? 0; //$_POST["infromationCategorySelector"];
+    $newInfromation->isDocument = 0; //$_POST["infromationCategorySelector"];
+    $newInfromation->sortOrder = 0; //$_POST["infromationCategorySelector"];
 
 
     unset($_POST['createInformationButton']);
     addKnowledge($newInfromation);
+
+    header("Location: " . $_SERVER['REQUEST_URI']);
+    exit;
+
     //print_r($newInfromation);
 }
 
@@ -35,7 +39,7 @@ switch ($knowledgeAction) {
         //$isDocument = $_POST['isDocument'] ?? '';
         $isDocument = 0;
         //print_r($title."".$description." ".$id);
-        updateKnowledge($title, $description,$isDocument, $id);
+        updateKnowledge($title, $description, $isDocument, $id);
         // Implement update code for data acess
         echo "in the edit";
 
