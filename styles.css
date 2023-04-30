@@ -130,6 +130,11 @@ td {
     height: 100vh;
 }
 
+.container.login {
+    align-items: center;
+    justify-content: center;
+}
+
 .working-container {
     flex: 0 0 65%;
     margin: 1em;
@@ -227,7 +232,7 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 0;
     font-size: 36px;
     margin-bottom: 10px;
-    
+
 }
 
 #timer {
@@ -241,10 +246,11 @@ body::-webkit-scrollbar-thumb:hover {
     margin-top: 20px;
     text-align: center;
 }
+
 .popup-content p {
     font-size: 26px;
-  margin-bottom: 10px;
-  font-family: "Open Sans", sans-serif;
+    margin-bottom: 10px;
+    font-family: "Open Sans", sans-serif;
 }
 
 
@@ -274,3 +280,45 @@ input[type="number"] {
     display: block !important;
 }
 
+/* login styles */
+.login .form-group {
+    margin-bottom: 15px;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.login button.btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.login .form-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.login .form-actions button {
+    margin-right: 20px;
+}
+
+.login .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

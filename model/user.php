@@ -2,6 +2,7 @@
 class User
 {   
   private $userId;
+  private $userName;
   private $password;
 
 function __construct()
