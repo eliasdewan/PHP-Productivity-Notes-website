@@ -23,6 +23,7 @@
             <a href="#">PROJECT</a>
             <a href="scenarioPageController.php">SCENARIO</a>
             <a href="docEditorController.php" onclick="redirect(event)">WORD PROCESSING</a>
+                <a href="loginController.php?logout"><?= $_SESSION['user']->userName ?? 'Guest' ?><br>Logout</a>
         </nav>
     </header>
 
@@ -30,7 +31,7 @@
     <div id="popup">
 
         <div class="popup-content">
-             <button class="close-btn">X</button>
+            <button class="close-btn">X</button>
             <h2>Pomodoro Timer</h2>
             <p>Set timer length (in minutes): <input type="number" id="timer-length" value="15"></p>
             <p>Set Break length (in minutes): <input type="number" id="break-length" value="5"></p>

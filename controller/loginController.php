@@ -4,6 +4,11 @@ session_start();
 require_once "../model/user.php";
 require_once "dataAccess.php";
 
+if (isset($_GET['logout'])) {
+    session_unset();
+    session_destroy();
+}
+
 
 if (isset($_POST['login'])) {
     // Login button was pressed, process login

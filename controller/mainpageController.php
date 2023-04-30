@@ -5,15 +5,11 @@ require_once "../model/user.php";
 require_once "dataAccess.php";
 session_start();
 
+if(!isset($_SESSION['user'])){
+    header("Location: loginController.php");
+        exit();
 
-
-
-
-
-
-
-
-
+}
 
 //echo "HELLO THIS IS TESTING";
 //echo $knowledgeAction."knowledge";

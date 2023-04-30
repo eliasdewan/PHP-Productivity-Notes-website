@@ -1,10 +1,10 @@
 function addClassEditorButton() {
     if ($(this).siblings('.html').is(':visible')) {
         $(this).siblings('.html').toggle();
-      }
-      else if($(this).siblings('input[name="isDocument"]').val() == 1){
+    }
+    else if ($(this).siblings('input[name="isDocument"]').val() == 1) {
         $(this).siblings('.html').toggle();
-      }
+    }
 
 
     var textarea = $(this).siblings('textarea');
@@ -19,7 +19,7 @@ function addClassEditorButton() {
         textarea.addClass('editor');
         textarea.siblings('input[name="isDocument"]').val(1);
         initializeEditor(textarea);
-        
+
     }
 
 
@@ -43,12 +43,12 @@ function initializeEditor() {
 
 
 function changeIsDocumentValue(button) {
- //   if($(button).siblings('input[name="isDocument"]').val() == 1){
-//        $(button).siblings('input[name="isDocument"]').val(0);
-//    }
-//    else{
- //       $(button).siblings('input[name="isDocument"]').val(1);
- //   }
+    //   if($(button).siblings('input[name="isDocument"]').val() == 1){
+    //        $(button).siblings('input[name="isDocument"]').val(0);
+    //    }
+    //    else{
+    //       $(button).siblings('input[name="isDocument"]').val(1);
+    //   }
 }
 
 function redirect(event) {
@@ -56,6 +56,7 @@ function redirect(event) {
     var targetUrl = event.currentTarget.getAttribute("href"); // Get the target URL from the href attribute of the link
     window.location.href = targetUrl; // Redirect the page to the target URL
 }
+
 
 
 // Get the button and popup elements
@@ -76,12 +77,12 @@ $(document).ready(function () {
         }
     })
 
-    $("#disableEditorsButton").click(function() {
+    $("#disableEditorsButton").click(function () {
         console.log("Trigger");
         tinymce.remove("textarea.editor");
     });
 
-    $("#openEditorsButton").click(function() {
+    $("#openEditorsButton").click(function () {
         console.log("open trigger");
         initializeEditor();
     });
@@ -89,10 +90,10 @@ $(document).ready(function () {
 
 
     // For ifram loding
-    $('button.load-iframe').click(function() {
+    $('button.load-iframe').click(function () {
         var inputVal = $(this).next('input').val();
         $(this).replaceWith(inputVal)
-      });
+    });
 
 
     $(document).ready(function () {
