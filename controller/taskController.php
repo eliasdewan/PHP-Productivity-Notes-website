@@ -6,7 +6,7 @@ if (isset($_POST["taskTitleInput"]) && $_POST["taskTitleInput"] !== "") {
 $newTask = new Task();
 $newTask->taskTitle = $_POST["taskTitleInput"];
 $newTask->taskDescription = $_POST['taskDescriptionInput'];
-$newTask->timeAllocation = $_POST["timeAllocation"];; // 60 minutes
+$newTask->timeAllocation = $_POST["timeAllocation"] ?? 0; // 60 minutes
 $newTask->priority = $_POST["priority"] ?? 9;
 $newTask->dueDate = $_POST["dueDate"]?? 2023-04-19;//"";
 $newTask->projectId = 0;

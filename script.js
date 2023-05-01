@@ -1,14 +1,14 @@
 function addClassEditorButton() {
     if ($(this).siblings('.html').is(':visible')) {
         $(this).siblings('.html').toggle();
-        
-        
+
+
     }
     else if ($(this).siblings('input[name="isDocument"]').val() == 1) {
         $(this).siblings('.html').toggle();
-        
-        
-        
+
+
+
     }
 
     var textarea = $(this).siblings('textarea');
@@ -83,19 +83,25 @@ $(document).ready(function () {
         }
     })
 
+    if ($('textarea.pageEditor').length) {
+        setTimeout(function() {
+          initializeEditor();
+        }, 500);
+      }
+
     // for auto question input with option select
-    $('#scenarioSelection').on('change', function() {
+    $('#scenarioSelection').on('change', function () {
         var selectedQuestion = $(this).val();
         $('.scenario-questionInput').val(selectedQuestion);
-      });
+    });
 
 
-    $("#knowledgeSearchInput").on("keyup", function() {
+    $("#knowledgeSearchInput").on("keyup", function () {
         var inputValue = $(this).val().toLowerCase();
-        $(".card.spyInput").each(function() {
+        $(".card.spyInput").each(function () {
             var content = $(this).html().toLowerCase(); // include PHP tags with html()
             var found = false;
-            $(this).find('*').each(function() {
+            $(this).find('*').each(function () {
                 var tagContent = $(this).text().toLowerCase();
                 if (tagContent.includes(inputValue)) {
                     found = true;
@@ -109,14 +115,14 @@ $(document).ready(function () {
             }
         });
     });
-    
+
 
 
     // for checkbox of knowlage
-    $('input[type="checkbox"]').click(function() {
-        if($(this).is(":checked")) {
+    $('input[type="checkbox"]').click(function () {
+        if ($(this).is(":checked")) {
             // checkbox is checked, show the div
-            $('.card'+'.' + $(this).attr('name')).show();
+            $('.card' + '.' + $(this).attr('name')).show();
         } else {
             // checkbox is unchecked, hide the div
             $('.' + $(this).attr('name')).hide();
