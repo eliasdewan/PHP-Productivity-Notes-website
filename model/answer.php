@@ -1,10 +1,15 @@
 <?php
-class Strategy
+class Answers
 {   
-  private $strategyId;
-  private $strategyTitle;
-  private $timeDate;
-  private $tesks; // going to be a list
+  private $answerId;
+  private $question;
+  private $answer;
+  private $category;
+  private $taskId;
+  private $userId;
+  private $timestamp;
+
+
 
 function __construct()
 {

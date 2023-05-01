@@ -10,7 +10,8 @@
 
 
     <script src="https://cdn.tiny.cloud/1/jzc5hw3saurqozgvn95t59pw7dywf4j01ck37hmxovsxbcpw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
@@ -18,7 +19,7 @@
         <h1>Work environment</h1>
         <nav>
             <a href="mainPageController.php">HOME</a>
-            <a href="#" id="popup-trigger">TIMER</a>
+            <img src="../assets/pomodoro.png" id="popup-trigger" width="50" height="50">
             <a href="#">SEARCH</a>
             <a href="#">PROJECT</a>
             <a href="scenarioPageController.php">SCENARIO</a>

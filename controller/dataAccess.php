@@ -46,7 +46,7 @@ function getAllScenario()
     global $pdo;
     $statement = $pdo->prepare("SELECT * FROM scenario");
     $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_OBJ);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Scenario");
     return $results;
 }
 
@@ -170,4 +170,17 @@ function checkUserName($userName)
     $statement->execute([$userName]);
     $result = $statement->fetchColumn();
     return $result > 0;
+}
+
+
+
+
+// answer functions
+
+
+function add($newAnswer)
+{
+    global $pdo;
+    $statement = $pdo->prepare("INSERT INTO answer (question,answer,category,taskId,userId) VALUES (?,?,?,?,?)");
+    $statement->execute([$newAnswer->question, $newAnswer->answer,$newAnswer->category,$newAnswer->taskId,$newAnswer->userId]); // execute will go into the previous line ? point
 }

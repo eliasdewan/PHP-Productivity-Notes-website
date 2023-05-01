@@ -1,4 +1,5 @@
 <?php
+// NOT IMPLEMENTED
 // Model where to store required
 require_once "dataAccess.php";
 if (isset($_POST["content"]) && $_POST["content"] !== ""){

@@ -1,9 +1,10 @@
-<?php
-class Questions
+getScenarioByUserId<?php
+class Scenario
 {   
-  private $questionId;
-  private $questionDetail;
+  private $scenarionumber ;
+  private $question;
   private $category;
+  private $color;
 
 
 function __construct()
