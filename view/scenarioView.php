@@ -1,4 +1,4 @@
-<h1> SCENARIO PAGE</h1>
+
 
 <?php
 foreach ($answerList as $answer) : ?>

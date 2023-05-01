@@ -1,6 +1,7 @@
 <?php
 // import scenario
  require_once "../model/scenario.php";
+ require_once "../model/knowledge.php";
  require_once "../model/answer.php";
  require_once "../model/user.php";
 require_once "dataAccess.php";

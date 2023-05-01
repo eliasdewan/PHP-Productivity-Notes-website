@@ -247,6 +247,11 @@ body::-webkit-scrollbar-thumb:hover {
     font-family: "Open Sans", sans-serif;
 }
 
+.position-fixed{
+    position: fixed;
+    z-index: 999;
+}
+
 .popup-content {
     background-color: white;
     width: 50%;
