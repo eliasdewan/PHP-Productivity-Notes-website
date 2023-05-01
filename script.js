@@ -83,6 +83,12 @@ $(document).ready(function () {
         }
     })
 
+    // for auto question input with option select
+    $('#scenarioSelection').on('change', function() {
+        var selectedQuestion = $(this).val();
+        $('.scenario-questionInput').val(selectedQuestion);
+      });
+
 
     $("#knowledgeSearchInput").on("keyup", function() {
         var inputValue = $(this).val().toLowerCase();

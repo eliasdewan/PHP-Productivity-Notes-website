@@ -1,11 +1,11 @@
 <?php
 
 
-if (isset($_POST["createAnswerButton"]) && $_POST["answerToQuestion"] !== ""&& $_POST["selectedScenario"] !== "") {
+if (isset($_POST["createAnswerButton"]) && $_POST["answerToQuestion"] !== ""&& $_POST["questionScenario"] !== "") {
     $newAnswer = new Answer();
 
     $newAnswer->answer = $_POST["answerToQuestion"];
-    $newAnswer->question = $_POST["selectedScenario"] ?? "NOT WORKING";
+    $newAnswer->question = $_POST["questionScenario"] ?? "NOT WORKING";
     $newAnswer->category = $_POST["infromationCategorySelector"] ?? "UNSET";
     $newAnswer->taskId = $_POST["taskId"]?? 0;
     $newAnswer->userId = $_SESSION['user']->userId ?? 0; 
