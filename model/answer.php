@@ -1,5 +1,5 @@
 <?php
-class Answers
+class Answer
 {   
   private $answerId;
   private $question;

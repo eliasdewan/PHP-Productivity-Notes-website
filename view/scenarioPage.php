@@ -13,9 +13,8 @@
 
     <div class="container">
         <!-- SCENARIO SECTION -->
-        <div class="scenario-container ">
-        <?php include 'scenarioView.php'; ?>
-            
+        <div class="scenario-container">
+        <?php include '../controller/scenarioController.php'; ?>
         </div>
     </div>
 

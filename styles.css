@@ -93,6 +93,19 @@ td {
 }
 
 
+.form-container-scenario {
+    display: block;
+    margin-bottom: 1em; }
+  
+  .auto-height-scenario {
+    display: block;
+    width: 100%;
+    height: auto;
+    resize: vertical; 
+    min-height: 100px; 
+  }
+
+
 
 .createInput input[type="text"],
 .boldInput {
@@ -149,6 +162,13 @@ td {
     word-wrap: break-word;
 }
 
+.scenario-container {
+    flex:auto;
+    margin: 1em;
+    overflow: auto;
+    word-wrap: break-word;
+}
+
 .titleKN {
     font-size: 24px;
     /* set the font size of the title */
@@ -157,6 +177,15 @@ td {
     margin-bottom: 10px;
     /* add some space between the title and description */
 }
+
+.question {
+    font-size: 1.2rem; 
+    font-weight: bold;
+  }
+  
+  .answer {
+    margin-bottom: 1em; 
+  }
 
 .descriptionKN {
     font-size: 16px;

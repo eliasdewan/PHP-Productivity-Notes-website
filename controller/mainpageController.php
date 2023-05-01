@@ -19,10 +19,6 @@ if(!isset($_SESSION['user'])){
 
 //echo "FYP ";
 
-$users = getAllUsers();
-$scenarios = getAllScenario();
-$projects = getAllProjects();
-$sections = getAllSections();
 
 //print_r($tasks[0]);
 //print_r($knowledgeList[0]);

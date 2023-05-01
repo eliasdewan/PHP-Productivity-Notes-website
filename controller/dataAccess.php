@@ -41,14 +41,7 @@ function getAllSections()
     $results = $statement->fetchAll(PDO::FETCH_OBJ);
     return $results;
 }
-function getAllScenario()
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM scenario");
-    $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Scenario");
-    return $results;
-}
+
 
 /// FIXED CALSSES
 
@@ -176,11 +169,30 @@ function checkUserName($userName)
 
 
 // answer functions
+function getAllScenario()
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM scenario");
+    $statement->execute();
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Scenario");
+    return $results;
+}
 
 
-function add($newAnswer)
+
+function getAnswersByuserId($id)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM answer WHERE userId = ?");
+    $statement->execute([$id]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Answer");
+    return $results;
+}
+
+function addAnswer($newAnswer)
 {
     global $pdo;
     $statement = $pdo->prepare("INSERT INTO answer (question,answer,category,taskId,userId) VALUES (?,?,?,?,?)");
     $statement->execute([$newAnswer->question, $newAnswer->answer,$newAnswer->category,$newAnswer->taskId,$newAnswer->userId]); // execute will go into the previous line ? point
 }
+
