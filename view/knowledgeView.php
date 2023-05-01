@@ -1,4 +1,4 @@
-<form class="createInput" action="../controller/mainPageController.php" method="post">
+<form class="createInput" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
     <input name="informationTitleAdd" type="text" placeholder="Title" required />
     <input type="hidden" name="isDocument" value="0">
     <label for="addCategorySelector">Choose a category:</label>
@@ -35,7 +35,7 @@
 <?php
 foreach ($knowledgeList as $knowledge) : ?>
     <div class="card spyInput <?= $knowledge->knowledgeCategory ?>">
-        <form action="../controller/mainPageController.php" method="POST">
+        <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <?php
             if ($knowledge->knowledgeCategory == "web") :
                 $url = $knowledge->knowledgeDescription;
