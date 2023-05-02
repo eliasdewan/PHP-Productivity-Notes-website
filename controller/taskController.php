@@ -40,7 +40,7 @@ switch ($taskAction) {
     case 'delete':
         $id = $_POST['taskId'] ?? '';
         // Implement delete here
-        echo ">in the task remove=" . $id;
+       // echo ">in the task remove=" . $id;
         removeTask($id);
         break;
 }
