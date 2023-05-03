@@ -29,7 +29,7 @@ $knowledgeAction = $_POST['knowledgeAction'] ?? '';
 
 switch ($knowledgeAction) {
     case 'add':
-        echo "in the add";
+        //echo "in the add";
         // code for adding a new item
         break;
     case 'edit':
@@ -41,13 +41,13 @@ switch ($knowledgeAction) {
         //print_r($title."".$description." ".$id);
         updateKnowledge($title, $description, $isDocument, $id);
         // Implement update code for data acess
-        echo "in the edit";
+        //echo "in the edit";
 
         // redirect to the main page after updating
         break;
     case 'delete':
         $id = $_POST['knowledgeId'] ?? '';
-        echo "in the delete";
+        //echo "in the delete";
         removeKnowledge($id);
 
         // code for deleting the item from the database

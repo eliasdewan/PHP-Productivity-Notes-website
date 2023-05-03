@@ -41,15 +41,19 @@ if (isset($_POST['login'])) {
         $newUser->userName = $username;
         $newUser->password = $password;
         addUser($newUser);
+	$_SESSION["user"] = getUser($username, $password);
+
+	header("Location: mainPageController.php");
+        exit();
+
+
     } else {
         $error_message = 'username taken';
     }
 
 
 
-    header("Location: loginController.php");
-    exit();
-}
+    }
 
 
 

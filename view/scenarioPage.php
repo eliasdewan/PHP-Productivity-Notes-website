@@ -10,11 +10,12 @@
 
 <body>
     <!-- WORKING FROM HERE -->
-    <h1 > SCENARIO PAGE</h1>
 
     <div class="container">
+
         <!-- SCENARIO SECTION -->
         <div class="working-container">
+
         <?php include '../controller/scenarioController.php'; ?>
         </div>
 

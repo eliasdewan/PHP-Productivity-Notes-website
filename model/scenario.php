@@ -1,4 +1,4 @@
-getScenarioByUserId<?php
+<?php
 class Scenario
 {   
   private $scenarionumber ;

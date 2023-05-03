@@ -20,8 +20,6 @@
         <nav>
             <a href="mainPageController.php">HOME</a>
             <img src="../assets/pomodoro.png" id="popup-trigger" width="50" height="50">
-            <a href="#">SEARCH</a>
-            <a href="#">PROJECT</a>
             <a href="scenarioPageController.php">SCENARIO</a>
             <a href="docEditorController.php" onclick="redirect(event)">WORD PROCESSING</a>
             <a href="loginController.php?logout"><?= $_SESSION['user']->userName ?? 'Guest' ?><br>Logout</a>
