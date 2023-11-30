@@ -1,14 +1,13 @@
 <?php
-class Knowledge
+class Project
 {
-    private $knowledgeId;
-    private $knowledgeTitle;
-    private $knowledgeDescription;
-    private $knowledgeCategory;
-    private $sortOrder;
-    private $isDocument;
-    private $fixed;
+    private $projectId;
+    private $title;
+    private $description;
+    private $priority;
+    private $dueDate;
     private $userId;
+    private $isDocument;
 
     function __construct()
     {

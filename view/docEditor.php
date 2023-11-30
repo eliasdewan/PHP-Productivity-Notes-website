@@ -5,18 +5,17 @@
     <title>
         Document Editor
     </title>
-    
-    <script src="https://cdn.tiny.cloud/1/jzc5hw3saurqozgvn95t59pw7dywf4j01ck37hmxovsxbcpw/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-    
+
 </head>
 
 <body>
+    <form method="post" action="../controller/mainPageController.php">
 
-    <form method="post" onsubmit="saveContent()">
-        <textarea class="editor">
-     <!-- EDITOR AREA -->
-  </textarea>
-  <input type="submit" value="Save">
+        <input hidden type="text"  name="taskTitleInput" value="UNTITLED">
+        <input hidden type="text"  name="isDocument" value="">
+
+        <textarea class="editor pageEditor" style="height:200px" name="taskDescriptionInput" required> </textarea>
+        <input type="submit" value="Create" name="createTaskButton">
     </form>
     <button onclick="initializeEditor()">Initialize Editor</button>
 </body>

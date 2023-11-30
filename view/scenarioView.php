@@ -1,29 +1,29 @@
-<h1> SCENARIO PAGE</h1>
-<h2>This is where you answer some questions for self reflection and understandng your goal</h2>
-<form class="createInput" action="../controller/scenarioPageController.php" method="post">
-    <input name="scenarioTitleAdd" type="text" placeholder="Scenario" required />
-
-    <textarea name="scenarioDescriptiomInput" placeholder="More details" class="createInformationDetails"></textarea>
-    <input type="Submit" value="Create" class="createButton" name="createInformationButton" />
-
-</form>
-
-
 <?php
-foreach ($scenarioList as $scenario) : ?>
-    <div class="card spyInput">
-        <form action="../controller/scenarioPageController.php" method="POST">
-
-            <input placeholder="Update Title" name="knowledgeTitleEdit" class="titleKN" type="text" value="<?= $scenario ?>"><!-- for now using title but is $task->taskDescription ?> -->
-            <textarea class="auto-height" name="knowledgeDescriptionEdit" type="text" name="taskDescriptionEdit"><?= $scenario ?></textarea>
-            <div class="descriptionKN"> <?= $scenario ?></div>
-            <!-- INFORMATION BUTTONS HERE -->
-            <div class="buttons">
-                <input type="hidden" name="knowledgeId" value="<?= $scenario ?>">
-                <button type="submit" name="knowledgeAction" value="edit">Edit</button>
-                <button type="submit" name="knowledgeAction" value="delete">Delete</button>
-
-            </div>
-        </form>
+foreach ($answerList as $answer) : ?>
+    <div>
+        <div class="question"><?= $answer->question ?></div>
+        <div class="answer"><?= nl2br($answer->answer) ?></div>
     </div>
 <?php endforeach; ?>
+
+<div>
+    <form action="../controller/scenarioPageController.php" method="POST">
+        <div class="form-container-scenario">
+            <label for="selectedScenario">Choose a Question:</label>
+            <select id="scenarioSelection" name="selectedScenario" >
+                <option value="">SELECT A QUESTION</option>
+                <?php foreach ($scenarioList as $scenario) : ?>
+                    <option value="<?= $scenario->question ?>"><?= $scenario->question ?></option>
+                <?php endforeach; ?>
+            </select>
+            <input class=" scenario-questionInput" name="questionScenario" placeholder="Type question" required autofocus>
+        </div>
+        <div class="form-container-scenario">
+            <label for="answerToQuestion">Insert Answer:</label>
+            <textarea class="auto-height-scenario" name="answerToQuestion" placeholder="Insert Answer" required></textarea>
+        </div>
+        <input type="Submit" value="SEND" class="createButton" name="createAnswerButton" />
+    </form>
+</div>
+
+</form>

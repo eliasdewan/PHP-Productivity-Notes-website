@@ -1,10 +1,11 @@
 <?php
-class Strategy
+class Scenario
 {   
-  private $strategyId;
-  private $strategyTitle;
-  private $timeDate;
-  private $tesks; // going to be a list
+  private $scenarionumber ;
+  private $question;
+  private $category;
+  private $color;
+
 
 function __construct()
 {

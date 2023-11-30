@@ -41,14 +41,7 @@ function getAllSections()
     $results = $statement->fetchAll(PDO::FETCH_OBJ);
     return $results;
 }
-function getAllScenario()
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM scenario");
-    $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_OBJ);
-    return $results;
-}
+
 
 /// FIXED CALSSES
 
@@ -64,11 +57,22 @@ function getAllTasks()
     return $results;
 }
 
+function getTasksByUserId($id)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM task WHERE userId = ? ORDER BY taskid DESC");
+    $statement->execute([$id]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Task");
+    //$results = $statement->fetchAll(PDO::FETCH_OBJ);
+    return $results;
+}
+
+
 function addTask($newTask)
 {
     global $pdo;
-    $statement = $pdo->prepare("INSERT INTO task (taskTitle,taskDescription,timeAllocation,priority,dueDate,strategyId ) VALUES (?,?,?,?,?,?)");
-    $statement->execute([$newTask->taskTitle,$newTask->taskDescription,$newTask->timeAllocation,$newTask->priority,$newTask->dueDate,$newTask->strategyId]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("INSERT INTO task (taskTitle,taskDescription,timeAllocation,priority,dueDate,projectId,progress,userId,isDocument ) VALUES (?,?,?,?,?,?,?,?,?)");
+    $statement->execute([$newTask->taskTitle, $newTask->taskDescription, $newTask->timeAllocation, $newTask->priority, $newTask->dueDate, $newTask->projectId, $newTask->progress, $newTask->userId, $newTask->isDocument]); // execute will go into the previous line ? point
 }
 function removeTask($taskId)
 {
@@ -76,11 +80,11 @@ function removeTask($taskId)
     $statement = $pdo->prepare("DELETE FROM task WHERE taskId = ?");
     $statement->execute([$taskId]); // execute will go into the previous line ? point
 }
-function updateTask($title,$description,$id) // UPDATE TASK STRING VALUES QUOTED
+function updateTask($title, $description, $priority, $progress, $timeAllocation, $dueDate, $projectId, $isDocument, $id) // UPDATE TASK STRING VALUES QUOTED
 {
     global $pdo;
-    $statement = $pdo->prepare("UPDATE task SET taskTitle = ?, taskDescription = ? WHERE  taskId = ?");
-    $statement->execute([$title,$description,$id]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("UPDATE task SET taskTitle = ?, taskDescription = ?, priority = ?,progress = ?,timeAllocation = ?,dueDate = ?,projectId = ?, isDocument=? WHERE  taskId = ?");
+    $statement->execute([$title, $description, $priority, $progress, $timeAllocation, $dueDate, $projectId, $isDocument, $id]); // execute will go into the previous line ? point
 }
 
 // KNOWLEGE FUNCTIONS
@@ -93,11 +97,20 @@ function getAllKnowledge()
     return $results;
 }
 
+function getKnowledgeByUserId($id)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM knowledge WHERE userId = ? OR fixed = 1 ORDER BY knowledgeId DESC");
+    $statement->execute([$id]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Knowledge");
+    return $results;
+}
+
 function addKnowledge($newKnowledge)
 {
     global $pdo;
-    $statement = $pdo->prepare("INSERT INTO knowledge (knowledgeTitle,knowledgeDescription,knowledgeCategory ) VALUES (?,?,?)");
-    $statement->execute([$newKnowledge->knowledgeTitle,$newKnowledge->knowledgeDescription,$newKnowledge->knowledgeCategory]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("INSERT INTO knowledge (knowledgeTitle,knowledgeDescription,knowledgeCategory,userId,isDocument,sortOrder ) VALUES (?,?,?,?,?,?)");
+    $statement->execute([$newKnowledge->knowledgeTitle, $newKnowledge->knowledgeDescription, $newKnowledge->knowledgeCategory, $newKnowledge->userId, $newKnowledge->isDocument, $newKnowledge->sortOrder]); // execute will go into the previous line ? point
 
 }
 
@@ -108,186 +121,78 @@ function removeKnowledge($knowledgeId)
     $statement->execute([$knowledgeId]); // execute will go into the previous line ? point
 }
 
-function updateKnowledge($title,$description,$id) // UPDATE TASK STRING VALUES QUOTED
+function updateKnowledge($title, $description, $isDocument, $id) // UPDATE TASK STRING VALUES QUOTED
 {
+    print_r($title . " " . $description . " " . $isDocument . " " . $id);
     global $pdo;
-    $statement = $pdo->prepare("UPDATE knowledge SET knowledgeTitle = ?, knowledgeDescription = ? WHERE  knowledgeId = ?");
-    $statement->execute([$title,$description,$id]); // execute will go into the previous line ? point
+    $statement = $pdo->prepare("UPDATE knowledge SET knowledgeTitle = ?, knowledgeDescription = ?, isDocument = ? WHERE  knowledgeId = ?");
+    $statement->execute([$title, $description, $isDocument, $id]); // execute will go into the previous line ? point
 }
 
 
 
-function insertDatabase($content){
+function insertDatabase($content)
+{
     // function to implement or maybe to not implement ++++++++++++++++
 }
 
 
+//  USER METHODS
 
 
-
-
-
-/// Other examples for later use ---------------
-function getAllVehicles()
+function addUser($newUser)
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM vehicles");
+    $statement = $pdo->prepare("INSERT INTO user (userName,password) VALUES (?,?)");
+    $statement->execute([$newUser->userName, $newUser->password]); // execute will go into the previous line ? point
+}
+
+function getUser($userName, $password)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM user where userName = ? AND password = ?");
+    $statement->execute([$userName, $password]); // execute will go into the previous line ? point
+    $result = $statement->fetchObject("User");
+    return $result;
+}
+
+function checkUserName($userName)
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT COUNT(*) FROM user where userName = ?");
+    $statement->execute([$userName]);
+    $result = $statement->fetchColumn();
+    return $result > 0;
+}
+
+
+
+
+// answer functions
+function getAllScenario()
+{
+    global $pdo;
+    $statement = $pdo->prepare("SELECT * FROM scenario");
     $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Vehicle");
-    return $results;
-}
-
-function getVehiclesByAll($queryString)
-{
-    global $pdo;
-    $statement = $pdo->prepare($queryString); //secial query
-    $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Vehicle");
-    // print_r($results);
-    return $results;
-}
-
-function getVehiclesByType($carType)
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM vehicles WHERE vehicleType = ? "); // added=  OR givenName = ?" OR givenName = ?
-    $statement->execute([$carType]); // execute will go into the previous line ? point
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Vehicle");
-    return $results;
-}
-
-
-
-
-
-//Implement other get by id and other stuff
-function getVehiclesById($Id)   // fetch all returns array - fetch returns one thing
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM vehicles WHERE id = ? "); // added=  OR givenName = ?" OR givenName = ?
-    $statement->execute([$Id]); // execute will go into the previous line ? point
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "vehicle");
-    return $results[0];
-}
-
-
-// Add neqw Vehicles to Database
-
-function addNewVehicle($newVehicle)
-{
-    global $pdo;
-    $statement = $pdo->prepare("INSERT INTO vehicles (id,img,registration, vehicleType, model, make, year ,price , colour, seatCapacity, licenceRequired ) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute([$newVehicle->id, $newVehicle->img, $newVehicle->registration, $newVehicle->vehicleType, $newVehicle->model, $newVehicle->make, $newVehicle->year, $newVehicle->price, $newVehicle->colour, $newVehicle->seatCapacity, $newVehicle->licenceRequired]); // execute will go into the previous line ? point
-
-}
-
-// - for all logged user data here
-
-if (isset($_SESSION["user"]) && !$_SESSION["user"]->userId == null) {
-    $loggedUser = $_SESSION["user"]->givenName;
-} else {
-    $loggedUser = "Login";
-}
-
-// Create user
-function addUser($user)
-{
-    global $pdo;
-    $statement = $pdo->prepare("INSERT INTO user (userId,type,givenName,surname,address,town,county,postcode,email,password) VALUES (?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute([$user->userId, $user->type, $user->givenName, $user->surname, $user->address, $user->town, $user->county, $user->postcode, $user->email, $user->password]); // execute will go into the previous line ? point   
-}
-
-
-// Gets user
-function getUser($email)
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM user WHERE email = ? ");
-    $statement->execute([$email]);
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "user");
-    if (empty($results)) {
-        return false;
-    };
-    return $results[0];
-}
-
-
-//SELECT MIN(sal) FROM emp
-
-function getUserLastId()
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT MAX(userId) FROM user ");
-    $statement->execute();
-    $results = $statement->fetch(PDO::FETCH_NUM);
-    //if (empty($results)){return false;}; 
-    return $results[0];
-}
-
-
-
-
-function getAllBookings()
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM booking");
-    $statement->execute();
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Booking");
-    return $results;
-}
-
-function getBooking($bookingId)
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM booking WHERE bookingId = ? "); // added=  OR givenName = ?" OR givenName = ?
-    $statement->execute([$bookingId]); // execute will go into the previous line ? point
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Booking");
-    return $results[0];
-}
-
-function getBookingsByDate($date)
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM booking WHERE date = ? ");
-    $statement->execute([$date]);
-    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Booking");
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Scenario");
     return $results;
 }
 
 
 
-// For database when booking confirmed  - update to 1 day for easyer
-function addBooking($booking)
+function getAnswersByuserId($id)
 {
     global $pdo;
-    $statement = $pdo->prepare("INSERT INTO booking (date,vehicleId,userId) VALUES (?,?,?)");
-    $statement->execute([$booking->date, $booking->vehicle->id, $booking->userId]); // execute will go into the previous line ? point
-
+    $statement = $pdo->prepare("SELECT * FROM answer WHERE userId = ?");
+    $statement->execute([$id]);
+    $results = $statement->fetchAll(PDO::FETCH_CLASS, "Answer");
+    return $results;
 }
 
-function addEventBooking($eventBooking)
-{
-
-    global $pdo;
-    $statement = $pdo->prepare("INSERT INTO eventBooking (userId,eventId,quantity) VALUES (?,?,?)");
-    $statement->execute([$eventBooking->userId, $eventBooking->eventId, $eventBooking->quantity]);
-}
-
-
-function getAllEvents()
+function addAnswer($newAnswer)
 {
     global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM events");
-    $statement->execute();
-    $events = $statement->fetchAll(PDO::FETCH_CLASS, "Event");
-    return $events;
+    $statement = $pdo->prepare("INSERT INTO answer (question,answer,category,taskId,userId) VALUES (?,?,?,?,?)");
+    $statement->execute([$newAnswer->question, $newAnswer->answer,$newAnswer->category,$newAnswer->taskId,$newAnswer->userId]); // execute will go into the previous line ? point
 }
 
-function getEventsById($Id)   // fetch all returns array - fetch returns one thing
-{
-    global $pdo;
-    $statement = $pdo->prepare("SELECT * FROM events WHERE eventId = ? "); // added=  OR givenName = ?" OR givenName = ?
-    $statement->execute([$Id]); // execute will go into the previous line ? point
-    $events = $statement->fetchAll(PDO::FETCH_CLASS, "Event");
-    return $events[0];
-}

@@ -1,16 +1,16 @@
 <?php
 require_once "../model/knowledge.php";
 require_once "../model/task.php";
+require_once "../model/user.php";
 require_once "dataAccess.php";
+session_start();
+ob_start();
 
+if(!isset($_SESSION['user'])){
+    header("Location: loginController.php");
+        exit();
 
-
-
-
-
-
-
-
+}
 
 //echo "HELLO THIS IS TESTING";
 //echo $knowledgeAction."knowledge";
@@ -19,10 +19,6 @@ require_once "dataAccess.php";
 
 //echo "FYP ";
 
-$users = getAllUsers();
-$scenarios = getAllScenario();
-$projects = getAllProjects();
-$sections = getAllSections();
 
 //print_r($tasks[0]);
 //print_r($knowledgeList[0]);
@@ -45,7 +41,7 @@ echo '<br/>';
 echo '<br/>';
 */
 
-//print_r($tasks);
+
 //echo '<br/>';
 
 // user -> projects[project] -> sections[section] -> tasks[task] 

@@ -12,10 +12,16 @@
     <!-- WORKING FROM HERE -->
 
     <div class="container">
+
         <!-- SCENARIO SECTION -->
-        <div class="scenario-container ">
-        <?php include 'scenarioView.php'; ?>
-            
+        <div class="working-container">
+
+        <?php include '../controller/scenarioController.php'; ?>
+        </div>
+
+        <!-- INFORMATION SECTION -->
+        <div class="information-container ">
+        <?php include '../controller/knowlegeController.php'; ?>
         </div>
     </div>
 

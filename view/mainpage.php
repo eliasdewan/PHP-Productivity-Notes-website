@@ -9,6 +9,7 @@
 </head>
 
 <body>
+<input class = "bigSearch" type="text" id="knowledgeSearchInput" placeholder="Search All text">
     <!-- WORKING FROM HERE -->
 
     <div class="container">

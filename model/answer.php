@@ -1,9 +1,14 @@
 <?php
-class Questions
+class Answer
 {   
-  private $questionId;
-  private $questionDetail;
+  private $answerId;
+  private $question;
+  private $answer;
   private $category;
+  private $taskId;
+  private $userId;
+  private $timestamp;
+
 
 
 function __construct()
